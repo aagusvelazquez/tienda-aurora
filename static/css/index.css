@@ -1,0 +1,1180 @@
+/*
+Autores: Agustina Velazquez
+Fecha: 03/04/2024
+Descripcion: este archivo CSS contiene los estilos para el index.htmll
+*/
+
+@font-face {
+    font-family: 'Aurora';
+    src: url(../fonts/OptimusPrinceps.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aurora';
+    src: url(../fonts/OptimusPrincepsSemiBold.ttf);
+    font-weight: bold;
+    font-style: bold;
+}
+
+:root {
+    --primary-color: #ffd8a1;
+    --secondary-color: #c8aa80;
+    --third-color: #7c644c;
+    --bg-light: #fbf4e5;
+    --bg-dark: #13110d;
+    /* Fonts */
+    --primary-font: 'Aurora', serif;
+    --secondary-font: 'Comfortaa', sans-serif;
+    --third-font: "Outfit", sans-serif;
+}
+
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 13px;
+}
+  
+/* Carril del scroll */
+::-webkit-scrollbar-track {
+    background-color: var(--secondary-color);
+}
+   
+/* Almohadilla del scroll */
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}
+  
+/* Almohadilla on hover */
+::-webkit-scrollbar-thumb:hover {
+    background:var(--third-color);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: var(--secondary-font);
+    scroll-behavior: smooth;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+main {
+    position: relative;
+    top: 20vw;
+    left: 0;
+}
+
+footer {
+    position: relative;
+    top: 315vw;
+}
+
+/********************************** Scroll to top *************************/
+#scrolltop {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    position: fixed;
+    bottom: 10px;
+    left: 15px;
+    padding: .5em;
+    background: #7c644c9e;
+    border-radius: 50%;
+    z-index: 1;
+    transition: visibility 0s, opacity 0.5s ease-in;
+}
+
+.top-button {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--bg-light);
+}
+
+/********************************** Scroll to top *************************/
+.icon-wsp {
+    display: block;
+    visibility: visible;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: .3em;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    font-size: 2em;
+    color: var(--bg-light);
+}
+
+/********************************** NAVBAR *************************/
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 5em;
+    padding: 0.9em 1.2em;
+    background: var(--primary-color);
+    box-shadow: 0 .25em .6em rgba(0, 0, 0, 0.461);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .nav-links {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    z-index: 100;
+    height: 100%;
+    width: 15em;
+    padding-top: 6em;
+    row-gap: 2em;
+    flex-direction: column;
+    background-color: #ffd8a1ea;
+    transition: all 0.4s ease;
+}
+
+nav .logo img {
+    height: 1.8em;
+}
+
+nav .nav-links a {
+    color: var(--bg-dark);
+    font-size: 1.1em;
+    font-weight: 800;
+    transition: all 0.3s linear;
+}
+
+nav .search-icon {
+    color: var(--third-color);
+    font-size: 1.25em;
+    cursor: pointer;
+}
+
+nav .search-box {
+    position: absolute;
+    height: 2.8em;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s linear;
+}
+
+nav.openNav .nav-links {
+    left: 0;
+}
+
+nav.openSearch .nav-links a {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+nav.openSearch .search-box {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.search-box input {
+    height: 100%;
+    width: 100%;
+    border: 2px solid var(--third-color);
+    outline: none;
+    border-radius: .5em;
+    background-color: var(--bg-light);
+    padding: 0 .9em 0 2.8em;
+}
+
+nav .navOpenBtn,
+nav .navCloseBtn {
+    display: block;
+}
+
+nav.openNav .nav-links {
+    left: 0;
+}
+
+nav .navOpenBtn {
+    color: var(--third-color);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+nav .navCloseBtn {
+    position: absolute;
+    top: 1.13em;
+    left: .8em;
+    color: var(--bg-dark);
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+
+.nav .search-box {
+    top: calc(100% + .6em);
+    max-width: calc(100% - 1.2em);
+    right: 50%;
+    transform: translateX(50%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+}
+
+.search-box input::placeholder {
+    font-family: var(--third-font);
+    font-size: 1.2em;
+    color: var(--third-color);
+}
+
+/********************************** MAIN *************************/
+/* Animación para que las secciónes vayan apareción con el scroll */
+.section {
+    transform: translateX(200%);
+    transition: transform 0.4s ease;
+}
+
+.section:nth-of-type(even) {
+    transform: translateX(-200%);
+}
+
+.section.show {
+    transform: translateX(0);
+}
+
+/*************** BANNER ************/
+
+.section img {
+    width: 100%;
+}
+
+/*************** COLECCIONES ************/
+
+.colections {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5em;
+    margin: 2em 0;
+    color: var(--bg-dark);
+}
+
+/* Titulo, subtitulo y parrafo */
+.colectiones-text {
+    margin: .1em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5em;
+    text-align: center;
+    color: var(--bg-dark);
+}
+
+.colectiones-text h2 {
+    text-transform: uppercase;
+    font-family: var(--primary-font);
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.colectiones-text p {
+    font-weight: 700;
+    color: var(--third-color);
+}
+
+/* Carrusel */
+.colections-carousel {
+    width: 100vw;
+    height: 31vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.desktop {
+    display: none;
+}
+
+.item-carrusel {
+    height: 100%;
+    position: relative;
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.tarjeta-carrusel {
+    min-width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: .3em 0;
+    text-align: center;
+}
+
+.producto-carrusel {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: .2em;
+    color: var(--bg-dark);
+}
+
+.producto-carrusel p {
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+.producto-carrusel p:last-child {
+    text-transform: lowercase;
+    font-size: .9em;
+    font-weight: normal;
+}
+
+.producto-carrusel img,
+.producto-tab img {
+    width: 9em;
+    height: 9em;
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 65%;
+    transform: translateY(-50%);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/*************** MARCAS ************/
+
+.marcas {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    gap: 1em;
+    padding: .5em;
+    text-align: center;
+}
+
+.marcas h3 {
+    font-family: var(--third-font);
+    font-size: 1.5em;
+    color: var(--bg-dark);
+}
+
+.marcas p {
+    padding: 0 .5em;
+}
+
+.marcas a {
+    width: 70vw;
+    margin: 0 auto;
+}
+
+/*************** DESTACADOS ************/
+/* Contenedor */
+.tabs {
+    position: relative;
+    width: 100%;
+}
+
+/* Titulo */
+.tabs .title {
+    padding: 1.5em 2em 3em;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--bg-light);
+    background-color: var(--third-color);
+    display: flex;
+}
+
+/* Etiquetas para seleccionar el contenido */
+.tabs .tab-header,
+.tabs .tab-indicator,
+.tabs .tab-body {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.tabs .tab-header {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.8em;
+    margin-top: -3.8em;
+    z-index: 2;
+}
+
+.tabs .tab-header>div {
+    width: 100%;
+    text-align: center;
+    padding: .9em 0;
+    color: var(--bg-light);
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: color 300ms ease-in-out;
+}
+
+.tabs .tab-header>div.active {
+    color: var(--bg-dark);
+    font-weight: bolder;
+}
+
+.tabs .tab-indicator {
+    position: relative;
+    height: 3.8em;
+    margin-top: -3.8em;
+}
+
+.tabs .tab-indicator>div {
+    position: absolute;
+    left: 0%;
+    width: 33%;
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: .6em .6em 0em 0em;
+    transition: all 300ms ease-in-out;
+}
+
+/* Cuerpo de cada seccion */
+
+.tabs .tab-body {
+    position: relative;
+}
+
+.tabs .tab-body>div {
+    position: absolute;
+    width: 100%;
+    padding: 1.2em;
+    opacity: 0;
+    top: -100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 25%);
+}
+
+.tabs .tab-body>div>* {
+    margin: .6em 0;
+}
+
+.tabs .tab-body>div.active {
+    top: 0px;
+    opacity: 1;
+    transition: top 0ms ease-in-out 0ms,
+        opacity 500ms ease-in-out 0ms;
+}
+
+.tabs .tab-body .tab-body-btn {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    height: 2.5em;
+    padding: .8em;
+    margin: .5em;
+    color: var(--bg-light);
+    background-color: var(--third-color);
+    border-radius: .5em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Tarjetas de cada elemento */
+.producto-tab {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: .2em;
+    color: var(--bg-dark);
+    position: relative;
+}
+
+.producto-tab p {
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: .9em;
+    text-align: center;
+}
+
+.producto-tab .badge {
+    text-transform: capitalize;
+    font-size: .8em;
+    font-weight: normal;
+    margin: .4em 0;
+}
+
+.producto-tab span {
+    font-weight: bolder;
+}
+
+.producto-tab i {
+    position: absolute;
+    top: .5em;
+    right: .5em;
+    color: var(--third-color);
+    margin: .3em;
+}
+
+/************************** FOOTER ********************************/
+.container {
+    margin: 0 auto;
+    padding: 1.5rem;
+    width: 100vw;
+    background-color: var(--third-color);
+    text-align: center;
+    color: var(--bg-light);
+}
+
+.container img {
+    width: 20em;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5em;
+    margin-top: 1.5em;
+    color: var(--bg-light);
+    font-weight: 700;
+}
+
+.footer-links a {
+    color: var(--bg-light);
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+    html {
+        overflow-x: hidden;
+    }
+    
+    main {
+        top: 10vw;
+    }
+
+    footer {
+        top: 175vw;
+    }
+
+    /********************************** Scroll to top *************************/
+    #scrolltop {
+        bottom: 20px;
+        left: 30px;
+        padding: .5em;
+    }
+
+    .top-button {
+        font-size: 2em;
+        z-index: 1;
+    }
+
+    /********************************** Button Wsp *************************/
+    .icon-wsp {
+        bottom: 20px;
+        right: 30px;
+        font-size: 3em;
+        z-index: 1;
+    }
+
+    /********************************** NAVBAR *************************/
+
+    nav .search-box {
+        width: 80%;
+    }
+
+    /********************************** MAIN *************************/
+    /*************** COLECCIONES ************/
+
+    /* Titulo, subtitulo y parrafo */
+    .colectiones-text h2 {
+        font-size: 3em;
+    }
+
+    .colectiones-text p {
+        font-weight: 700;
+    }
+
+    /* Carrusel */
+    .colections-carousel {
+        height: 31vh;
+    }
+
+    .producto-carrusel {
+        height: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        padding: .2em;
+        text-align: center;
+        color: var(--bg-dark);
+    }
+
+    .producto-carrusel p {
+        font-size: 1.3em;
+    }
+
+    .producto-carrusel p:last-child {
+        font-size: 1.2em;
+    }
+
+    .producto-carrusel img,
+    .producto-tab img {
+        width: 15em;
+        height: 15em;
+    }
+
+    .prev,
+    .next {
+        font-size: 1.5em;
+        padding: 13px 18px;
+    }
+
+    /*************** MARCAS ************/
+    .marcas h3 {
+        font-size: 2em;
+    }
+
+    .marcas p {
+        font-size: 1.3em;
+        padding: 0 .5em;
+    }
+
+    .marcas a {
+        display: inline-block;
+        width: 40vw;
+        margin: 0 auto;
+    }
+
+    /*************** DESTACADOS ************/
+    /* Titulo */
+    .tabs .title {
+        padding: 1.5em 2em 3em 5em;
+        font-size: 2.2em;
+    }
+
+    /* Etiquetas para seleccionar el contenido */
+    .tabs .tab-header,
+    .tabs .tab-indicator,
+    .tabs .tab-body {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .tabs .tab-header {
+        margin-top: -3.8em;
+    }
+
+    .tabs .tab-header>div {
+        font-size: 1.3em;
+    }
+
+    .tabs .tab-indicator {
+        height: 3.8em;
+        margin-top: -3.8em;
+    }
+
+    /* Cuerpo de cada seccion */
+    .tabs .tab-body>div {
+        position: absolute;
+        width: 100%;
+        padding: 1.2em;
+        opacity: 0;
+        top: -100vh;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 33%);
+    }
+
+    .tabs .tab-body .tab-body-btn {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        font-size: 1.2em;
+    }
+
+    /* Tarjetas de cada elemento */
+    .producto-tab p {
+        font-size: 1.1em;
+    }
+
+    .producto-tab .badge {
+        font-size: 1em;
+    }
+
+    .producto-tab i {
+        font-size: 1.5em;
+    }
+
+    /************************** FOOTER ********************************/
+
+    .container img {
+        width: 20em;
+    }
+
+    .footer-links {
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-top: 1.5em;
+        padding-top: 2em;
+        border-top: 2px solid var(--bg-light);
+    }
+
+    .footer-links a {
+        font-size: 1.1em;
+    }
+}
+
+@media only screen and (min-width:1280px) and (max-width: 1730px) {
+    html {
+        overflow-x: hidden;
+    }
+
+    main {
+        top: 6vw;
+    }
+
+    footer {
+        top: 85vw;
+    }
+
+    /********************************** Scroll to top *************************/
+    #scrolltop {
+        display: none;
+    }
+
+    /********************************** Button Wsp *************************/
+    .icon-wsp {
+        bottom: 20px;
+        right: 30px;
+        font-size: 3em;
+        z-index: 1;
+    }
+
+    /********************************** NAVBAR *************************/
+    nav .search-box {
+        width: 50%;
+    }
+
+    /********************************** MAIN *************************/
+    /*************** COLECCIONES ************/
+    /* Titulo, subtitulo y parrafo */
+    .colectiones-text h2 {
+        font-size: 3em;
+    }
+
+    .colectiones-text h4 {
+        font-size: 1.5em;
+    }
+
+    .colectiones-text p {
+        font-size: 1em;
+    }
+
+    /* Carrusel */
+    .colections-carousel {
+        height: 50vh;
+    }
+
+    .producto-carrusel p {
+        font-size: 1.3em;
+    }
+
+    .producto-carrusel p:last-child {
+        font-size: 1.2em;
+    }
+
+    .producto-carrusel img,
+    .producto-tab img {
+        width: 20em;
+        height: 20em;
+    }
+
+    .prev,
+    .next {
+        font-size: 1.5em;
+        padding: 13px 18px;
+    }
+
+    .prev {
+        left: 8em;
+    }
+
+    .next {
+        right: 8em;
+    }
+
+    /*************** MARCAS ************/
+    .marcas {
+        /* Arriba | Horizontal | Abajo */
+        margin: 1em auto 3em;
+    }
+
+    .marcas h3 {
+        font-size: 2.5em;
+    }
+
+    .marcas p {
+        font-size: 1.3em;
+        padding: 0 5em;
+    }
+
+    .marcas a {
+        display: inline-block;
+        width: 30vw;
+        margin: 0 auto;
+    }
+
+    /*************** DESTACADOS ************/
+    /* Titulo */
+    .tabs .title {
+        padding: 1.5em 2em 3em 5em;
+        font-size: 2.2em;
+    }
+
+    .title div {
+        margin-left: 7em;
+    }
+
+    /* Etiquetas para seleccionar el contenido */
+    .tabs .tab-header,
+    .tabs .tab-indicator,
+    .tabs .tab-body {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .tabs .tab-header {
+        margin-top: -3.8em;
+    }
+
+    .tabs .tab-header>div {
+        font-size: 1.3em;
+    }
+
+    .tabs .tab-indicator {
+        height: 3.8em;
+        margin-top: -3.8em;
+    }
+
+    /* Cuerpo de cada seccion */
+    .tabs .tab-body>div {
+        width: 0vw;
+        padding: 1em;
+        column-gap: 1em;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 50%);
+    }
+
+    .tabs .tab-body .tab-body-btn {
+        grid-column-start: 2;
+        grid-column-end: 4;
+    }
+
+    /* Tarjetas de cada elemento */
+    .producto-tab img {
+        width: 18em;
+        height: 18em;
+    }
+
+    .producto-tab p {
+        font-size: 1.3em;
+    }
+
+    .producto-tab .badge {
+        font-size: 1.2em;
+    }
+
+    .producto-tab i {
+        font-size: 1.5em;
+    }
+
+    /************************** FOOTER ********************************/
+
+    .container img {
+        width: 20em;
+    }
+
+    .footer-links {
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-top: 1.5em;
+        padding-top: 2em;
+        border-top: 2px solid var(--bg-light);
+    }
+
+    .footer-links a {
+        font-size: 1.1em;
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    html {
+        overflow-x: hidden;
+    }
+
+    main {
+        top: 4vw;
+    }
+
+    footer {
+        top: 55vw;
+    }
+
+    /********************************** Scroll to top *************************/
+    #scrolltop {
+        display: none;
+    }
+
+    /********************************** Button Wsp *************************/
+    .icon-wsp {
+        bottom: 10px;
+        right: 10px;
+        font-size: 2em;
+        z-index: 1;
+    }
+
+    /********************************** NAVBAR *************************/
+    nav .logo img {
+        height: 2em;
+    }
+
+    nav .search-box {
+        width: 50%;
+    }
+
+    /********************************** MAIN *************************/
+    .section img {
+        width: 100%;
+    }
+
+    /*************** COLECCIONES ************/
+    .small-screen {
+        display: none;
+    }
+
+    .desktop {
+        display: block;
+    }
+
+    /* Titulo, subtitulo y parrafo */
+    .colectiones-text h2 {
+        font-size: 3em;
+    }
+
+    .colectiones-text h4 {
+        font-size: 1.5em;
+    }
+
+    .colectiones-text p {
+        font-size: 1.2em;
+    }
+
+    /* Carrusel */
+    .colections-carousel.desktop {
+        width: 100%;
+    }
+
+    .colections-carousel.desktop .tarjeta-carrusel {
+        width: 90vw;
+    }
+
+    .colections-carousel.desktop .producto-carrusel {
+        padding: 1em;
+        margin: 0 1em;
+        color: var(--bg-dark);
+        border-radius: 25px;
+        transition: all .8s ease;
+    }
+
+    .colections-carousel.desktop .producto-carrusel img {
+        width: 12em;
+        height: 12em;
+    }
+
+    .prev {
+        left: 10em;
+    }
+
+    .next {
+        right: 10em;
+    }
+
+    /*************** MARCAS ************/
+    .marcas {
+        /* Arriba | Horizontal | Abajo */
+        margin: 1em auto 3em;
+    }
+
+    .marcas h3 {
+        font-size: 2.8em;
+    }
+
+    .marcas p {
+        font-size: 1.5em;
+        padding: 0 10em;
+    }
+
+    .marcas div a img {
+        width: 20em;
+        margin: 3em auto;
+    }
+
+    /*************** DESTACADOS ************/
+    .tabs {
+        width: 80vw;
+        margin: 0 auto;
+    }
+
+    /* Titulo */
+    .tabs .title {
+        padding: 1em 0em 3em 16em;
+        font-size: 2.2em;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .title div {
+        margin: 0;
+    }
+
+    /* Etiquetas para seleccionar el contenido */
+    .tabs .tab-header,
+    .tabs .tab-indicator,
+    .tabs .tab-body {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .tabs .tab-header {
+        margin-top: -3.8em;
+    }
+
+    .tabs .tab-header>div {
+        font-size: 1.3em;
+    }
+
+    .tabs .tab-indicator {
+        height: 3.8em;
+        margin-top: -3.8em;
+    }
+
+    /* Cuerpo de cada seccion */
+    .tabs .tab-body>div {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 50%);
+        background-color: var(--bg-light);
+        border: 2px solid var(--primary-color);
+        border-top: none;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .tabs .tab-body .tab-body-btn {
+        margin-top: 2em;
+        grid-column-start: 2;
+        grid-column-end: 4;
+    }
+
+    /* Tarjetas de cada elemento */
+    .producto-tab {
+        width: 18em;
+        height: 22em;
+        text-align: center;
+        justify-self: center;
+        align-self: center;
+        border-radius: 25px;
+        background-color: #f2f2f2;
+        transition: all 0.8 ease;
+    }
+
+    .producto-tab:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, .1);
+    }
+
+
+    .producto-tab img {
+        width: 12em;
+        height: 12em;
+    }
+
+    .producto-tab p {
+        color: var(--bg-dark);
+        font-size: 1.3em;
+    }
+
+    .producto-tab .badge {
+        font-size: 1.2em;
+    }
+
+    .producto-tab i {
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+
+    /************************** FOOTER ********************************/
+    .container {
+        /* top | right | bottom | left */
+        padding: 5em 0 2em 0;
+    }
+
+    .container img {
+        width: 30em;
+    }
+
+    .footer-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10em;
+        margin-top: 1.5em;
+        padding-top: 2em;
+        border-top: 2px solid var(--bg-light);
+    }
+
+    .footer-links a {
+        font-size: 1.2em;
+        transition: all 0.5s ease;
+    }
+
+    .footer-links a:hover {
+        cursor: pointer;
+        color: var(--secondary-color);
+        transform: scale(1.1);
+    }
+}

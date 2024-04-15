@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Metadatos -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tienda Online de Aurora Aromas, pagina de reventa de productos Saphirus">
+    <meta name="keywords" content="tienda, aromas, saphirus, home-spray, difusor">
+    <meta name="author" content="Agustina Mailen Velazquez">
+    <title>Aurora - Tienda de Aromas</title>
+    <!-- zona de script FontAwesome -->
+    <script src="https://kit.fontawesome.com/eae8fc4e25.js" crossorigin="anonymous"></script>
+    <!-- zona del favicon -->
+    <link rel="shortcut icon" href="./Favicon.ico" type="image/x-icon">
+    <!-- zona de estilos -->
+    <link rel="stylesheet" href="./static/css/index.css">
+    <!-- zona de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="nav">
+            <i class="fa-solid fa-bars navOpenBtn"></i>
+            <a href="#" class="logo">
+                <img src="./static/img/aurora-logo-negro.png" alt="Aurora letra original">
+            </a>
+            <ul class="nav-links">
+                <i class="fa-solid fa-xmark navCloseBtn"></i>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="./templates/products.html">Tienda</a></li>
+                <li><a href="#">Contactanos</a></li>
+                <li><a href="#">Dónde Encontrarnos</a></li>
+            </ul>
+            <i class="fa-solid fa-magnifying-glass search-icon" id="searchIcon"></i>
+            <div class="search-box">
+                <i class="uil uil-search search-icon"></i>
+                <input type="text" placeholder="Buscar producto..." />
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- Banner -->
+        <section class="section">
+            <img src="./static/img/banner.png" alt="Banner de Aurora">
+        </section>
+        <!-- Colecciones -->
+        <section class="section colections">
+            <div class="colectiones-text">
+                <h2>Colecciones 2024</h2>
+                <h4>Los más elegidos</h4>
+                <p>Elegí tu fragancia favorita de Saphirus y aromatizá tu dia.</p>
+            </div>
+            <!-- Carrusel screen max-width: 1730px-->
+            <div class="colections-carousel small-screen">
+                <div class="item-carrusel">
+                    <div class="tarjeta-carrusel">
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2023/08/banner-cat-textil.png">
+                                <p>Textiles</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/banner-cat-sensaciones.png">
+                                <p>Sensaciones</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="tarjeta-carrusel">
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/banner-cat-sahumerios-ambar.png">
+                                <p>Sahumerios</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/banner-cat-autoaromas-route-66.png">
+                                <p>Route 66</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="tarjeta-carrusel">
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/05/banner-cat-difusor-premium-saphirus.png">
+                                <p>Difusores Premium</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/11/banner-cat-difusor.png">
+                                <p>Difusores</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="tarjeta-carrusel">
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/11/banner-cat-mini.png">
+                                <p>Mini</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/banner-cat-latitas-saphirus.png">
+                                <p>Latitas Aromáticas</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="tarjeta-carrusel">
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/banner-cat-jabon-liquido-milano.png">
+                                <p>Jabón Líquido</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/banner-cat-perfumes-milano.png">
+                                <p>Perfumes</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="tarjeta-carrusel">
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/11/banner-cat-homespray.png">
+                                <p>Home Spray</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/banner-cat-autoaromas-caritas.png">
+                                <p>Caritas</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="tarjeta-carrusel">
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/banner-cat-body-splash.png">
+                                <p>Body Splash</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/11/banner-cat-pack.png">
+                                <p>Pack Premium</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="tarjeta-carrusel">
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/11/banner-cat-home-aerosol.png">
+                                <p>Aerosoles</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/07/banner-cat-aceites-esenciales-amber-1.jpg">
+                                <p>Aceites para<br>hornillos</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="tarjeta-carrusel">
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/banner-cat-equipos.png">
+                                <p>Equipos Aromatizadores</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/banner-cat-hornillos-electricos.png">
+                                <p>Hornillos</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Carrusel screen min-width: 1920px-->
+            <div class="colections-carousel desktop">
+                <div class="item-carrusel item-desktop">
+                    <div class="tarjeta-carrusel tarjeta-desktop">
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2023/08/banner-cat-textil.png">
+                                <p>Textiles</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/banner-cat-sensaciones.png">
+                                <p>Sensaciones</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/banner-cat-sahumerios-ambar.png">
+                                <p>Sahumerios</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/banner-cat-autoaromas-route-66.png">
+                                <p>Route 66</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/11/banner-cat-home-aerosol.png">
+                                <p>Aerosoles</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/07/banner-cat-aceites-esenciales-amber-1.jpg">
+                                <p>Aceites para<br>hornillos</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="tarjeta-carrusel tarjeta-desktop">
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/05/banner-cat-difusor-premium-saphirus.png">
+                                <p>Difusores Premium</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/11/banner-cat-difusor.png">
+                                <p>Difusores</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/11/banner-cat-mini.png">
+                                <p>Mini</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/banner-cat-latitas-saphirus.png">
+                                <p>Latitas Aromáticas</p>
+                                <p>X productos</p>
+                            </div>
+                        </a><a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/banner-cat-body-splash.png">
+                                <p>Body Splash</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/11/banner-cat-pack.png">
+                                <p>Pack Premium</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="tarjeta-carrusel tarjeta-desktop">
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/banner-cat-jabon-liquido-milano.png">
+                                <p>Jabón Líquido</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/banner-cat-perfumes-milano.png">
+                                <p>Perfumes</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/11/banner-cat-homespray.png">
+                                <p>Home Spray</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/banner-cat-autoaromas-caritas.png">
+                                <p>Caritas</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/banner-cat-equipos.png">
+                                <p>Equipos Aromatizadores</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="producto-carrusel">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/banner-cat-hornillos-electricos.png">
+                                <p>Hornillos</p>
+                                <p>X productos</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Botones -->
+            <button class="prev"><i class="fa-solid fa-angle-left"></i></button>
+            <button class="next"><i class="fa-solid fa-angle-right"></i></button>
+        </section>
+        <!-- Marcas -->
+        <div class="section">
+            <div class="marcas">
+                <h3>Cada marca una única experiencia</h3>
+                <p>Amplia gama de fragancais en diferentes formatos. En Aurora vas a encontrar aromatizadores para tela
+                    y ambientes, spray para el hogar, aerosoles, varillas difusoras, aceites esenciales, sahumerios,
+                    jabones de mano, body splash, perfumes y mucho más!</p>
+                <div>
+                    <a href="#">
+                        <img loading="lazy" decoding="async"
+                            src="https://saphirus.com.ar/wp-content/uploads/2022/04/logo-saphirus-.png">
+                    </a>
+                    <a href="#">
+                        <img loading="lazy" decoding="async"
+                            src="https://saphirus.com.ar/wp-content/uploads/2022/04/logo-ambar-aromas.png">
+                    </a>
+                    <a href="#">
+                        <img loading="lazy" decoding="async"
+                            src="https://saphirus.com.ar/wp-content/uploads/2022/04/logo-milano-cosmetics.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Destacados -->
+        <div class="section destacados">
+            <div class="tabs">
+                <div class="title">
+                    <div>Los más destacados</div>
+                </div>
+                <div class="tab-header">
+                    <div class="active">Saphirus</div>
+                    <div>Milano Cosmetics</div>
+                    <div>Ambar Aromas</div>
+                </div>
+                <div class="tab-indicator">
+                    <div></div>
+                </div>
+                <div class="tab-body">
+                    <div class="active">
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/saphirus-dispensador-linea-deco-black-800x800.jpg">
+                                <p>Equipo Analógico Black - Línea Deco</p>
+                                <p class="badge">Saphirus</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/hornillo.png">
+                                <p>Hornillo Eléctrico</p>
+                                <p class="badge">Saphirus</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/06/saphirus-difusores-flowers-800x800.jpg">
+                                <p>Difusor Flowers</p>
+                                <p class="badge">Saphirus</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/06/saphirus-difusores-flowers2-800x800.jpg">
+                                <p>Difusor Premium Lavanda & Romero</p>
+                                <p class="badge">Saphirus</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/Manzana-1200x1200-1-800x800.png">
+                                <p>Caritas Manzana</p>
+                                <p class="badge">Saphirus</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/1ovA3O26hl4h9iFMgkZjhLNa5S9eYMqLJccmzS4U-1-800x800.jpeg">
+                                <p>Air Cool Acqua</p>
+                                <p class="badge">Saphirus</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/sensaciones-aquarose-800x800.jpg">
+                                <p>Sensaciones Aqua Rosé</p>
+                                <p class="badge">Saphirus</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/saphirus-textil-naranja-pimienta-800x800.jpg">
+                                <p>Textil Naranja Pimienta</p>
+                                <p class="badge">Saphirus</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <a href="" class="tab-body-btn">Ver todos los productos</a>
+                    </div>
+                    <div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/jabon-manzana-2-800x800.jpg">
+                                <p>Jabó Líquido Manzana</p>
+                                <p class="badge">Milano</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/Perfume-503-rdr-800x800.jpg">
+                                <p>Perfume 503 - Red Door</p>
+                                <p class="badge">Milano</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/12/mini-milano-205-oml-800x800.jpg">
+                                <p>Perfume Mini 205 - OML</p>
+                                <p class="badge">Milano</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/miamisummer-body-splash-800x800.jpg">
+                                <p>Body Splash Miami Summer</p>
+                                <p class="badge">Milano</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/flowers-body-splash-800x800.jpg">
+                                <p>Body Splash Flowers</p>
+                                <p class="badge">Milano</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/Perfume-510-ch5-800x800.jpg">
+                                <p>Perfume 510 - Chanel N°5</p>
+                                <p class="badge">Milano</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/agua-micelar-800x800.jpg">
+                                <p>Agua Micelar</p>
+                                <p class="badge">Milano</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/jabon-citrico-2-800x800.jpg">
+                                <p>Jabó Líquido Cítrico</p>
+                                <p class="badge">Milano</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <a href="" class="tab-body-btn">Ver todos los productos</a>
+                    </div>
+                    <div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/antitabaco-latas-ambar-800x800.jpg">
+                                <p>Aerosol Ambar Antitabaco</p>
+                                <p class="badge">Ambar</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/07/ambar-aceite-esencial-cocovai-800x800.jpg">
+                                <p>Aceite para Hornillos Coco Vai</p>
+                                <p class="badge">Ambar</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/08/ambar-sahumerios-amber-3-800x800.jpg">
+                                <p>Sahumerios Ambar Amber</p>
+                                <p class="badge">Ambar</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/08/ambar-sahumerios-benzoin-3-800x800.jpg">
+                                <p>Sahumerios Ambar Benzoin</p>
+                                <p class="badge">Amber</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/uva-latas-ambar-800x800.jpg">
+                                <p>Aerosol Amber Uva</p>
+                                <p class="badge">Ambar</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/flowers-latas-ambar-800x800.jpg">
+                                <p>Aerosol Amber Flowers</p>
+                                <p class="badge">Ambar</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/07/ambar-aceite-esencial-oriente-800x800.jpg">
+                                <p>Aceite para Horinillos Oriente</p>
+                                <p class="badge">Ambar</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <div class="producto-tab">
+                            <button>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <a href="#">
+                                <img loading="lazy" decoding="async"
+                                    src="https://saphirus.com.ar/wp-content/uploads/2022/04/invicto-latas-ambar-800x800.jpg">
+                                <p>Aerosol Amber Invitus</p>
+                                <p class="badge">Ambar</p>
+                            </a>
+                            <span>$</span>
+                        </div>
+                        <a href="" class="tab-body-btn">Ver todos los productos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://api.whatsapp.com/send?phone=5491175049581&text=¡Hola,%20te%20asesoramos%20por
+        %20Whatsapp%20y%20te%20ayudamos%20a%20gestionar%20tu%20compra%20por%20este%20canal!"><i
+                class="fa-brands fa-whatsapp icon-wsp"></i></a>
+        <div id="scrolltop">
+            <a class="top-button" href="#top"><i class="fa-solid fa-chevron-up"></i></a>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <img src="./static/img/aurora-completo-blanco.png" alt="Aurora - Tienda de Aromas">
+            <div class="footer-links">
+                <a href="">¿Dónde estamos?</a>
+                <a href="https://www.instagram.com/aurora.tiendadearomas?" class="ig-link" target="_blank"><i class="fa-brands fa-instagram"></i> Aurora Aromas</a>
+                <a href="">Contactanos</a>
+            </div>
+        </div>
+    </footer>
+    <script src="./static/js/index.js"></script>
+</body>
+
+</html>

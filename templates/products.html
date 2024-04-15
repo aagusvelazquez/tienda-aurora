@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Metadatos -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tienda Online de Aurora Aromas, pagina de reventa de productos Saphirus">
+    <meta name="keywords" content="tienda, aromas, saphirus, home-spray, difusor">
+    <meta name="author" content="Agustina Mailen Velazquez">
+    <title>Productos | Aurora - Tienda de Aromas</title>
+    <!-- zona de script FontAwesome -->
+    <script src="https://kit.fontawesome.com/eae8fc4e25.js" crossorigin="anonymous"></script>
+    <!-- zona del favicon -->
+    <link rel="shortcut icon" href="../Favicon.ico" type="image/x-icon">
+    <!-- zona de estilos -->
+    <link rel="stylesheet" href="../static/css/products.css">
+    <!-- zona de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="nav">
+            <i class="fa-solid fa-bars navOpenBtn"></i>
+            <a href="../index.html" class="logo">
+                <img src="../static/img/aurora-logo-negro.png" alt="Aurora letra original">
+            </a>
+            <ul class="nav-links">
+                <i class="fa-solid fa-xmark navCloseBtn"></i>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="#">Tienda</a></li>
+                <li><a href="./contact.html">Contactanos</a></li>
+                <li><a href="./address.html">Dónde Encontrarnos</a></li>
+            </ul>
+            <i class="fa-solid fa-magnifying-glass search-icon" id="searchIcon"></i>
+            <div class="search-box">
+                <i class="uil uil-search search-icon"></i>
+                <input type="text" placeholder="Buscar producto..." />
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="main-products">
+            <div class="main-header">
+                <div class="main-links">
+                    <a href="../index.html">Inicio /</a><a href="#"> Tienda Online</a>
+                </div>
+                <!-- Carrito de Compras -->
+                <div class="container-icon">
+                    <!-- Carrito y contador de productos -->
+                    <div class="container-cart-icon btn-carrito">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <div class="count-products">
+                            <span id="contador-productos">0</span>
+                        </div>
+                    </div>
+                    <!-- Carrito de compras -->
+                    <div class="container-cart-products carrito hidden">
+                        <i class="fa-solid fa-x icon-close"></i>
+                        <div class="carrito-items" id="product-container"></div>
+
+                        <div class="carrito-total hidden">
+                            <div class="carrito-precio-total">
+                                <h3>Total:</h3><span id="total-amount"></span>
+                            </div>
+                            <button class="btn-continuar-compra">Continuar</button>
+                        </div>
+                        <div class="cart-empty">
+                            <img src="../static/img/compras.png" alt="Carirto Vacio">
+                            <p>El carrito está vacío</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <article class="list-products">
+                <!-- Filtros -->
+                <div class="filters">
+                    <div class="products-filter">
+                        <label for="products">Filtros</label>
+                        <!-- menu desplegable -->
+                        <select name="products" id="products-filters" class="products-filter-dropdown">
+                            <option value="aceite-esenciale">Aceites para Hornillos</option>
+                            <option value="aerosol">Aersoles</option>
+                            <option value="agua-micelar">Agua Micelar</option>
+                            <option value="air-cool">Air Cool</option>
+                            <option value="antihumedad">Antihumedad</option>
+                            <option value="body-splash">Body Splash</option>
+                            <option value="caritas">Caritas</option>
+                            <option value="difusor">Difusores</option>
+                            <option value="difusor-premium">Difusores Premium</option>
+                            <option value="equipo-aromatizador">Equipo Aromatizador</option>
+                            <option value="home-spray">Home Spray</option>
+                            <option value="hornillo-velas">Hornillos y Velas</option>
+                            <option value="jabon-liquido">Jabón Líquido</option>
+                            <option value="lata-aromatica">Latitas Aromáticas</option>
+                            <option value="mini">Mini</option>
+                            <option value="pack-premium">Pack Premium</option>
+                            <option value="perfume-mini">Perfumes Mini</option>
+                            <option value="perfume-fino">Perfumería Fina</option>
+                            <option value="route">Route 66</option>
+                            <option value="sahumerios">Sahumerios</option>
+                            <option value="sensaciones">Sensaciones</option>
+                            <option value="tarjeta-aromatica">Tarjetas Aromáticas</option>
+                            <option value="textil">Textiles</option>
+                            <option value="all" selected>Todos los Productos</option>
+                        </select>
+                    </div>
+                    <button title="Precio de menor a mayor" class="btn-price">
+                        <i class="fa-solid fa-arrow-down-short-wide"></i>
+                    </button>
+                </div>
+                <!-- Productos -->
+                <section class="contenedor">
+                    <div class="contenedor-items" id="contenedor-items"></div>
+                </section>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <img src="../static/img/aurora-completo-blanco.png" alt="Aurora - Tienda de Aromas">
+            <div class="footer-links">
+                <a href="">¿Dónde estamos?</a>
+                <a href="https://www.instagram.com/aurora.tiendadearomas?" class="ig-link" target="_blank"><i
+                        class="fa-brands fa-instagram"></i> Aurora Aromas</a>
+                <a href="">Contactanos</a>
+            </div>
+        </div>
+    </footer>
+    <script src="../static/js/products.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
