@@ -1,3 +1,46 @@
+/* Funcionalidad del navbar */
+const nav = document.querySelector(".nav"),
+  searchIcon = document.querySelector("#searchIcon"),
+  navOpenBtn = document.querySelector(".navOpenBtn"),
+  navCloseBtn = document.querySelector(".navCloseBtn");
+
+searchIcon.addEventListener("click", () => {
+  nav.classList.toggle("openSearch");
+  nav.classList.remove("openNav");
+  if (nav.classList.contains("openSearch")) {
+    return searchIcon.classList.replace("uil-search", "uil-times");
+  }
+  searchIcon.classList.replace("uil-times", "uil-search");
+});
+
+navOpenBtn.addEventListener("click", () => {
+  nav.classList.add("openNav");
+  nav.classList.remove("openSearch");
+  searchIcon.classList.replace("uil-times", "uil-search");
+});
+navCloseBtn.addEventListener("click", () => {
+  nav.classList.remove("openNav");
+});
+
+// Lógica para el boton de ¿scroll to top'
+const scrollTop = document.getElementById('scrolltop')
+
+window.onload = () => {
+    scrollTop.style.visibility = "hidden";
+    scrollTop.style.opacity = 0;
+}
+
+window.onscroll = () => {
+    if (window.scrollY > 200) {
+        scrollTop.style.visibility = "visible";
+        scrollTop.style.opacity = 1;
+    } else {
+        scrollTop.style.visibility = "hidden";
+        scrollTop.style.opacity = 0;
+    }
+};
+
+
 const products = [
     {
         id: 1,

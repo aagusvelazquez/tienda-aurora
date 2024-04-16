@@ -121,6 +121,7 @@ footer {
     border-radius: 50%;
     font-size: 2em;
     color: var(--bg-light);
+    z-index: 1;
 }
 
 /********************************** NAVBAR *************************/
@@ -130,7 +131,7 @@ nav {
     top: 0;
     left: 0;
     z-index: 2;
-    width: 100%;
+    width: 100vw;
     height: 5em;
     padding: 0.9em 1.2em;
     background: var(--primary-color);
@@ -248,7 +249,7 @@ nav .navCloseBtn {
 
 /********************************** MAIN *************************/
 /* Animación para que las secciónes vayan apareción con el scroll */
-.section {
+/* .section {
     transform: translateX(200%);
     transition: transform 0.4s ease;
 }
@@ -259,7 +260,7 @@ nav .navCloseBtn {
 
 .section.show {
     transform: translateX(0);
-}
+} */
 
 /*************** BANNER ************/
 
@@ -362,7 +363,7 @@ nav .navCloseBtn {
 .prev,
 .next {
     position: absolute;
-    top: 65%;
+    top: 30%;
     transform: translateY(-50%);
     background-color: var(--primary-color);
     border: none;

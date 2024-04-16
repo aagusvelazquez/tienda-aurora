@@ -23,22 +23,22 @@ navCloseBtn.addEventListener("click", () => {
 });
 
 // Accediendo a todos los div con clase de section
-const boxes = document.querySelectorAll('.section');
-window.addEventListener('scroll', checkBoxes);
-checkBoxes();
+// const boxes = document.querySelectorAll('.section');
+// window.addEventListener('scroll', checkBoxes);
+// checkBoxes();
 
-function checkBoxes() {
-	const triggerBottom = window.innerHeight / 5 * 4;
-	boxes.forEach((box, idx) => {
-		const boxTop = box.getBoundingClientRect().top;
+// function checkBoxes() {
+// 	const triggerBottom = window.innerHeight / 5 * 4;
+// 	boxes.forEach((box, idx) => {
+// 		const boxTop = box.getBoundingClientRect().top;
 		
-		if(boxTop < triggerBottom) {
-			box.classList.add('show');
-		} else {
-			box.classList.remove('show');
-		}
-	});
-}
+// 		if(boxTop < triggerBottom) {
+// 			box.classList.add('show');
+// 		} else {
+// 			box.classList.remove('show');
+// 		}
+// 	});
+// }
 
 // Deslizar el carrusel de Colecciones screen max-width: 1730px
 document.addEventListener('DOMContentLoaded', function () {
