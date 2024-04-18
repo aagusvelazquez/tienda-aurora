@@ -9,7 +9,7 @@
     <meta name="description" content="Tienda Online de Aurora Aromas, pagina de reventa de productos Saphirus">
     <meta name="keywords" content="tienda, aromas, saphirus, home-spray, difusor">
     <meta name="author" content="Agustina Mailen Velazquez">
-    <title>Productos | Aurora - Tienda de Aromas</title>
+    <title>Tienda | Aurora - Tienda de Aromas</title>
     <!-- zona de script FontAwesome -->
     <script src="https://kit.fontawesome.com/eae8fc4e25.js" crossorigin="anonymous"></script>
     <!-- zona del favicon -->
@@ -38,19 +38,14 @@
                 <li><a href="#">Tienda</a></li>
                 <li><a href="./contact.html">Contactanos</a></li>
                 <li><a href="./address.html">Dónde Encontrarnos</a></li>
+                <li><a href="">Ingresar</a></li>
             </ul>
-            <i class="fa-solid fa-magnifying-glass search-icon" id="searchIcon"></i>
-            <div class="search-box">
-                <i class="uil uil-search search-icon"></i>
-                <input type="text" placeholder="Buscar producto..." />
-            </div>
-        </nav>
-    </header>
-    <main>
-        <section class="main-products">
-            <div class="main-header">
-                <div class="main-links">
-                    <a href="../index.html">Inicio /</a><a href="#"> Tienda Online</a>
+            <div>
+                <!-- Lupita -->
+                <i class="fa-solid fa-magnifying-glass search-icon" id="searchIcon"></i>
+                <div class="search-box">
+                    <i class="uil uil-search search-icon"></i>
+                    <input type="text" placeholder="Buscar producto..." />
                 </div>
                 <!-- Carrito de Compras -->
                 <div class="container-icon">
@@ -65,18 +60,28 @@
                     <div class="container-cart-products carrito hidden">
                         <i class="fa-solid fa-x icon-close"></i>
                         <div class="carrito-items" id="product-container"></div>
-
+    
                         <div class="carrito-total hidden">
                             <div class="carrito-precio-total">
                                 <h3>Total:</h3><span id="total-amount"></span>
                             </div>
-                            <button class="btn-continuar-compra">Continuar</button>
+                            <a href="./comprar.html" class="btn-continuar-compra">Continuar</a>
+                            <button class="btn-vaciar-carrito">Vaciar Carrito</button>
                         </div>
                         <div class="cart-empty">
                             <img src="../static/img/compras.png" alt="Carirto Vacio">
                             <p>El carrito está vacío</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="main-products">
+            <div class="main-header">
+                <div class="main-links">
+                    <a href="../index.html">Inicio /</a><a href="#"> Tienda Online</a>
                 </div>
             </div>
             <article class="list-products">
@@ -139,6 +144,8 @@
             </div>
         </div>
     </footer>
+    <script src="../static/js/app.js"></script>
+    <script src="../static/js/tienda.js"></script>
     <script src="../static/js/products.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>

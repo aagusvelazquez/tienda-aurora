@@ -85,7 +85,7 @@ main {
 
 footer {
     position: relative;
-    top: 315vw;
+    top: 330vw;
 }
 
 /********************************** Scroll to top *************************/
@@ -127,18 +127,21 @@ footer {
 /********************************** NAVBAR *************************/
 
 nav {
+    width: 100vw;
+    height: 5em;
+    padding: 0.9em 1.2em;
+
     position: fixed;
     top: 0;
     left: 0;
     z-index: 2;
-    width: 100vw;
-    height: 5em;
-    padding: 0.9em 1.2em;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     background: var(--primary-color);
     box-shadow: 0 .25em .6em rgba(0, 0, 0, 0.461);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 nav .nav-links {
@@ -157,8 +160,15 @@ nav .nav-links {
     transition: all 0.4s ease;
 }
 
+nav ul ~ div {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
 nav .logo img {
     height: 1.8em;
+    margin-left: 2em;
 }
 
 nav .nav-links a {
@@ -166,6 +176,13 @@ nav .nav-links a {
     font-size: 1.1em;
     font-weight: 800;
     transition: all 0.3s linear;
+}
+
+nav .nav-links li:last-child {
+    width: 80%;
+    padding-top: 1.2em;
+    border-top: 1px solid var(--bg-dark);
+    text-align: center;
 }
 
 nav .search-icon {
@@ -232,7 +249,6 @@ nav .navCloseBtn {
     cursor: pointer;
 }
 
-
 .nav .search-box {
     top: calc(100% + .6em);
     max-width: calc(100% - 1.2em);
@@ -247,21 +263,200 @@ nav .navCloseBtn {
     color: var(--third-color);
 }
 
+/********************************** CARRITO DE COMPRAS *************************/
+/************************** Botón ********************************/
+.container-icon {
+    display: inline-block;
+    align-items: flex-end;
+
+    position: relative;
+    top: 0;
+    right: 0;
+
+    font-size: 1.5em;
+    color: var(--third-color);
+}
+
+.count-products {
+    position: absolute;
+    top: -12px;
+    right: -10px;
+
+    background-color: var(--bg-dark);
+    color: var(--bg-light);
+    width: 17px;
+    height: 17px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+#contador-productos {
+    font-size: .5em;
+}
+
+/************************** Lista de Productos - Carrito ********************************/
+.icon-close {
+    font-size: .7em;
+    color: var(--bg-dark);
+    margin-left: 1em;
+    margin-top: 1em;
+}
+
+.icon-close:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.container-cart-products {
+    width: 95vw;
+
+    position: absolute;
+    top: 10vw;
+    right: -.3em;
+    z-index: 1;
+
+    background-color: var(--bg-light);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: .5em;
+
+    overflow-y: auto;
+}
+
+.cart-product {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: .5em;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.20);
+}
+
+.info-cart-product {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.titulo-producto-carrito {
+    text-align: center;
+    font-size: .6em;
+}
+
+.precio-producto-carrito {
+    font-weight: 700;
+    font-size: .7em;
+    margin-left: 10px;
+}
+
+.cantidad-producto-carrito {
+    font-weight: 700;
+    font-size: .7em;
+}
+
+.icon-remove {
+    background: none;
+    border: none;
+    font-size: .7em;
+    font-weight: 500;
+    color: var(--bg-dark);
+    margin-left: 1em;
+    margin-top: .5em;
+}
+
+.icon-remove:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.carrito-total {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: .5em 0;
+    margin: .5em 0;
+    gap: .5em;
+}
+
+.carrito-precio-total {
+    display: flex;
+    flex-direction: row;
+    gap: .5em;
+}
+
+.carrito-precio-total h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.carrito-precio-total {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.btn-continuar-compra {
+    width: 60%;
+    padding: .6em 0;
+
+    text-align: center;
+    text-transform: uppercase;
+    font-size: .8em;
+    font-weight: bolder;
+
+    background-color: var(--secondary-color);
+    color: var(--bg-dark);
+    border: none;
+    border-radius: .5em;
+
+    transition: all 0.3s ease-in;
+}
+
+.btn-vaciar-carrito {
+    width: 60%;
+    padding: .5em 0;
+    margin-top: .5em;
+
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-size: .46em;
+    font-weight: bolder;
+
+    background-color: var(--bg-light);
+    color: var(--bg-dark);
+    border: none;
+    border-radius: .5em;
+
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+
+.hidden {
+    display: none;
+}
+
+.cart-empty {
+    position: relative;
+    top: 15%;
+    text-align: center;
+}
+
+.cart-empty img {
+    width: 3em;
+    opacity: 0.1;
+}
+
+.cart-empty p {
+    font-size: .7em;
+    font-weight: 700;
+    margin-left: 1em;
+    margin-bottom: 1em;
+}
+
 /********************************** MAIN *************************/
-/* Animación para que las secciónes vayan apareción con el scroll */
-/* .section {
-    transform: translateX(200%);
-    transition: transform 0.4s ease;
-}
-
-.section:nth-of-type(even) {
-    transform: translateX(-200%);
-}
-
-.section.show {
-    transform: translateX(0);
-} */
-
 /*************** BANNER ************/
 
 .section img {
@@ -442,7 +637,7 @@ nav .navCloseBtn {
     align-items: center;
     height: 3.8em;
     margin-top: -3.8em;
-    z-index: 2;
+    z-index: 1;
 }
 
 .tabs .tab-header>div {
@@ -450,7 +645,7 @@ nav .navCloseBtn {
     text-align: center;
     padding: .9em 0;
     color: var(--bg-light);
-    font-size: 1.1em;
+    font-size: 1.2em;
     cursor: pointer;
     transition: color 300ms ease-in-out;
 }
@@ -477,7 +672,6 @@ nav .navCloseBtn {
 }
 
 /* Cuerpo de cada seccion */
-
 .tabs .tab-body {
     position: relative;
 }
@@ -491,10 +685,6 @@ nav .navCloseBtn {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(4, 25%);
-}
-
-.tabs .tab-body>div>* {
-    margin: .6em 0;
 }
 
 .tabs .tab-body>div.active {
@@ -519,17 +709,20 @@ nav .navCloseBtn {
 
 /* Tarjetas de cada elemento */
 .producto-tab {
-    height: 100%;
+    height: 18em;
+    padding: .2em;
+
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    padding: .2em;
+    
     color: var(--bg-dark);
+
     position: relative;
 }
 
-.producto-tab p {
+.producto-tab .titulo-item {
     text-transform: uppercase;
     font-weight: bolder;
     font-size: .9em;
@@ -543,16 +736,62 @@ nav .navCloseBtn {
     margin: .4em 0;
 }
 
-.producto-tab span {
-    font-weight: bolder;
+.producto-tab .precio-item {
+    margin-bottom: 1em;
 }
 
-.producto-tab i {
-    position: absolute;
-    top: .5em;
-    right: .5em;
-    color: var(--third-color);
-    margin: .3em;
+.btns-producto {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: .2em;
+
+    margin-top: 1em;
+}
+
+.boton-item {
+    width: 60%;
+    padding: .6em 0;
+
+    text-align: center;
+    text-transform: uppercase;
+    font-size: .8em;
+    font-weight: bolder;
+
+    background-color: var(--secondary-color);
+    color: var(--bg-dark);
+    border: none;
+    border-radius: .5em;
+
+    transition: all 0.3s ease-in;
+}
+
+.boton-item:hover {
+    background-color: var(--third-color);
+    color: var(--bg-light);
+}
+
+.restar-cantidad,
+.sumar-cantidad {
+    width: 20%;
+    padding: .5em 0;
+
+    text-align: center;
+    font-weight: bold;
+    color: var(--bg-dark);
+
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: .5em;
+
+    transition: all 0.3s ease;
+}
+
+.restar-cantidad:hover,
+.sumar-cantidad:hover {
+    background-color: var(--third-color);
+    color: var(--bg-light);
+    border: none;
 }
 
 /************************** FOOTER ********************************/
