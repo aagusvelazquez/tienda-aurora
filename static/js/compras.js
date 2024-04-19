@@ -1,16 +1,3 @@
-const nav = document.querySelector(".nav");
-const navOpenBtn = document.querySelector(".navOpenBtn");
-const navCloseBtn = document.querySelector(".navCloseBtn");
-
-navOpenBtn.addEventListener("click", () => {
-    nav.classList.add("openNav");
-    nav.classList.remove("openSearch");
-    searchIcon.classList.replace("uil-times", "uil-search");
-});
-navCloseBtn.addEventListener("click", () => {
-    nav.classList.remove("openNav");
-});
-
 let currentStep = 1;
 const maxSteps = 3;
 

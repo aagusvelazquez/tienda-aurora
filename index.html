@@ -60,16 +60,16 @@
                     <div class="container-cart-products carrito hidden">
                         <i class="fa-solid fa-x icon-close"></i>
                         <div class="carrito-items" id="product-container"></div>
-    
+
                         <div class="carrito-total hidden">
                             <div class="carrito-precio-total">
                                 <h3>Total:</h3><span id="total-amount"></span>
                             </div>
-                            <button class="btn-continuar-compra">Continuar</button>
+                            <a class="btn-continuar-compra" href="./templates/comprar.html">Continuar</a>
                             <button class="btn-vaciar-carrito">Vaciar Carrito</button>
                         </div>
                         <div class="cart-empty">
-                            <img src="../static/img/compras.png" alt="Carirto Vacio">
+                            <img src="./static/img/compras.png" alt="Carirto Vacio">
                             <p>El carrito está vacío</p>
                         </div>
                     </div>
@@ -415,7 +415,7 @@
             <button class="next"><i class="fa-solid fa-angle-right"></i></button>
         </section>
         <!-- Marcas -->
-        <div class="section">
+        <section class="section">
             <div class="marcas">
                 <h3>Cada marca una única experiencia</h3>
                 <p>Amplia gama de fragancais en diferentes formatos. En Aurora vas a encontrar aromatizadores para tela
@@ -436,28 +436,34 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </section>
         <!-- Destacados -->
-        <div class="section destacados">
+        <section class="contenedor">
+            <div class="titulo-tabs">Destacados</div>
             <div class="tabs">
-                <div class="title">
-                    <div>Los más destacados</div>
-                </div>
-                <div class="tab-header">
-                    <div class="active">Saphirus</div>
-                    <div>Milano Cosmetics</div>
-                    <div>Ambar Aromas</div>
-                </div>
-                <div class="tab-indicator">
-                    <div></div>
-                </div>
-                <div class="tab-body">
-                    <div class="active" id="container-saphirus"></div>
-                    <div id="container-milano"></div>
-                    <div id="container-ambar"></div>
+                <button class="tab-btn active" id="tab-btn1" onclick="mostrarTab(1)">Saphirus</button>
+                <button class="tab-btn" id="tab-btn2" onclick="mostrarTab(2)">Milano Cosmetics</button>
+                <button class="tab-btn" id="tab-btn3" onclick="mostrarTab(3)">Ambar </button>
+            </div>
+
+            <div id="tab1" class="tab active">
+                <div class="tarjetas container-saphirus">
+                    
                 </div>
             </div>
-        </div>
+
+            <div id="tab2" class="tab">
+                <div class="tarjetas container-milano">
+                    
+                </div>
+            </div>
+
+            <div id="tab3" class="tab">
+                <div class="tarjetas container-ambar">
+                    
+                </div>
+            </div>
+        </section>
         <!-- Boton de Wsp -->
         <a href="https://api.whatsapp.com/send?phone=5491175049581&text=¡Hola,%20me%20gustaría%20recibir
         %20más%20información!"><i class="fa-brands fa-whatsapp icon-wsp"></i></a>
@@ -471,16 +477,14 @@
             <img src="./static/img/aurora-completo-blanco.png" alt="Aurora - Tienda de Aromas">
             <div class="footer-links">
                 <a href="">¿Dónde estamos?</a>
-                <a href="https://www.instagram.com/aurora.tiendadearomas?" class="ig-link" target="_blank"><i class="fa-brands fa-instagram"></i> Aurora Aromas</a>
+                <a href="https://www.instagram.com/aurora.tiendadearomas?" class="ig-link" target="_blank"><i
+                        class="fa-brands fa-instagram"></i> Aurora Aromas</a>
                 <a href="">Contactanos</a>
             </div>
         </div>
     </footer>
-    
+
     <script src="./static/js/app.js"></script>
-    <script src="./static/js/index.js"></script>
-    <script src="./static/js/products.js"></script>
-    <script src="./static/js/tienda.js"></script>    
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 

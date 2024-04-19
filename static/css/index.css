@@ -35,21 +35,21 @@ Descripcion: este archivo CSS contiene los estilos para el index.htmll
 ::-webkit-scrollbar {
     width: 13px;
 }
-  
+
 /* Carril del scroll */
 ::-webkit-scrollbar-track {
-    background-color: var(--secondary-color);
+    background-color: var(--bg-light);
 }
-   
+
 /* Almohadilla del scroll */
 ::-webkit-scrollbar-thumb {
     background-color: var(--primary-color);
     border-radius: 5px;
 }
-  
+
 /* Almohadilla on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background:var(--third-color);
+    background: var(--third-color);
 }
 
 * {
@@ -85,7 +85,7 @@ main {
 
 footer {
     position: relative;
-    top: 330vw;
+    top: 30vw;
 }
 
 /********************************** Scroll to top *************************/
@@ -99,7 +99,6 @@ footer {
     padding: .5em;
     background: #7c644c9e;
     border-radius: 50%;
-    z-index: 1;
     transition: visibility 0s, opacity 0.5s ease-in;
 }
 
@@ -121,7 +120,6 @@ footer {
     border-radius: 50%;
     font-size: 2em;
     color: var(--bg-light);
-    z-index: 1;
 }
 
 /********************************** NAVBAR *************************/
@@ -135,7 +133,7 @@ nav {
     top: 0;
     left: 0;
     z-index: 2;
-    
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -160,7 +158,7 @@ nav .nav-links {
     transition: all 0.4s ease;
 }
 
-nav ul ~ div {
+nav ul~div {
     display: flex;
     align-items: center;
     gap: 1em;
@@ -312,6 +310,7 @@ nav .navCloseBtn {
 
 .container-cart-products {
     width: 95vw;
+    max-height: 50vh;
 
     position: absolute;
     top: 10vw;
@@ -321,8 +320,11 @@ nav .navCloseBtn {
     background-color: var(--bg-light);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     border-radius: .5em;
+}
 
-    overflow-y: auto;
+.carrito-items {
+    max-height: 9em;
+    overflow-y: scroll;
 }
 
 .cart-product {
@@ -558,7 +560,7 @@ nav .navCloseBtn {
 .prev,
 .next {
     position: absolute;
-    top: 30%;
+    top: 16.8%;
     transform: translateY(-50%);
     background-color: var(--primary-color);
     border: none;
@@ -604,144 +606,109 @@ nav .navCloseBtn {
 
 /*************** DESTACADOS ************/
 /* Contenedor */
-.tabs {
-    position: relative;
-    width: 100%;
+.contenedor {
+    background-color: var(--secondary-color);
 }
 
 /* Titulo */
-.tabs .title {
-    padding: 1.5em 2em 3em;
+.titulo-tabs {
+    padding: 1em 0;
+
+    font-family: var(--third-font);
+    font-size: 2em;
     text-align: center;
     text-transform: uppercase;
-    font-size: 1.8em;
-    font-weight: bold;
-    color: var(--bg-light);
-    background-color: var(--third-color);
+}
+
+.tabs {
+    margin: 0 .2em;
     display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 /* Etiquetas para seleccionar el contenido */
-.tabs .tab-header,
-.tabs .tab-indicator,
-.tabs .tab-body {
-    margin: 0 auto;
-    width: 100%;
-}
 
-.tabs .tab-header {
-    position: relative;
+.tab-btn {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 3.8em;
-    margin-top: -3.8em;
-    z-index: 1;
-}
+    height: 4em;
 
-.tabs .tab-header>div {
-    width: 100%;
-    text-align: center;
-    padding: .9em 0;
+    margin: 0 .2em ;
+    padding: 1em;
+
+    font-family: var(--secondary-font);
+    font-size: 1em;
+    font-weight: 700;
+
+    border: none;
+    background-color: var(--third-color);
     color: var(--bg-light);
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: color 300ms ease-in-out;
+    border-radius: .8em .8em 0 0;
 }
-
-.tabs .tab-header>div.active {
-    color: var(--bg-dark);
-    font-weight: bolder;
-}
-
-.tabs .tab-indicator {
-    position: relative;
-    height: 3.8em;
-    margin-top: -3.8em;
-}
-
-.tabs .tab-indicator>div {
-    position: absolute;
-    left: 0%;
-    width: 33%;
-    height: 100%;
+.tab-btn.active {
     background-color: var(--primary-color);
-    border-radius: .6em .6em 0em 0em;
-    transition: all 300ms ease-in-out;
+    color: var(--bg-dark);
+}
+
+.tab {
+    width: 100%;
+    display: none;
+}
+
+.tab.active {
+    display: block;
 }
 
 /* Cuerpo de cada seccion */
-.tabs .tab-body {
-    position: relative;
-}
-
-.tabs .tab-body>div {
-    position: absolute;
-    width: 100%;
-    padding: 1.2em;
-    opacity: 0;
-    top: -100vh;
+.tarjetas {
+    padding: .5em;
+    
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, 25%);
+    column-gap: .5em;
+    row-gap: .8em;
+    
+    background-color: var(--bg-light);
 }
-
-.tabs .tab-body>div.active {
-    top: 0px;
-    opacity: 1;
-    transition: top 0ms ease-in-out 0ms,
-        opacity 500ms ease-in-out 0ms;
-}
-
-.tabs .tab-body .tab-body-btn {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    height: 2.5em;
-    padding: .8em;
-    margin: .5em;
-    color: var(--bg-light);
-    background-color: var(--third-color);
-    border-radius: .5em;
-    text-align: center;
-    text-transform: uppercase;
-}
-
 /* Tarjetas de cada elemento */
 .producto-tab {
-    height: 18em;
-    padding: .2em;
+    height: 20em;
+    padding: .5em;
 
     display: flex;
-    flex-flow: column nowrap;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
     
-    color: var(--bg-dark);
-
-    position: relative;
-}
-
-.producto-tab .titulo-item {
-    text-transform: uppercase;
-    font-weight: bolder;
-    font-size: .9em;
+    font-family: var(--third-font);
     text-align: center;
+    border-radius: 10px;
 }
 
-.producto-tab .badge {
-    text-transform: capitalize;
-    font-size: .8em;
-    font-weight: normal;
-    margin: .4em 0;
+.img-item {
+    width: 100%;
+    height: 12em;
+
+    margin: 0 auto;
+
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
 }
 
-.producto-tab .precio-item {
-    margin-bottom: 1em;
+.titulo-item {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.badge {
+    color: var(--secondary-color);
+}
+
+.precio-item {
+    font-size: 18px;
+    font-weight: 900;
 }
 
 .btns-producto {
-    width: 90%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -749,7 +716,6 @@ nav .navCloseBtn {
 
     margin-top: 1em;
 }
-
 .boton-item {
     width: 60%;
     padding: .6em 0;
@@ -765,6 +731,26 @@ nav .navCloseBtn {
     border-radius: .5em;
 
     transition: all 0.3s ease-in;
+}
+
+.tab-body-btn {
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    padding: .5em 0;
+
+    text-align: center;
+    font-weight: 700;
+    color: var(--bg-light);
+    background-color: var(--third-color);
+    border-radius: .4em;
+
+    transition: all 0.3s ease-in;
+}
+
+.tab-body-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--bg-dark);
 }
 
 .boton-item:hover {
@@ -796,9 +782,11 @@ nav .navCloseBtn {
 
 /************************** FOOTER ********************************/
 .container {
+    width: 100vw;
+
     margin: 0 auto;
     padding: 1.5rem;
-    width: 100vw;
+
     background-color: var(--third-color);
     text-align: center;
     color: var(--bg-light);
@@ -809,14 +797,19 @@ nav .navCloseBtn {
 }
 
 .footer-links {
+    margin-top: 1.5em;
+    padding-top: 1em;
+
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: .5em;
-    margin-top: 1.5em;
+    gap: 2em;
+    
     color: var(--bg-light);
     font-weight: 700;
+    font-size: .8em;
+    border-top: 1px solid var(--bg-light);
 }
 
 .footer-links a {
@@ -827,7 +820,7 @@ nav .navCloseBtn {
     html {
         overflow-x: hidden;
     }
-    
+
     main {
         top: 10vw;
     }
