@@ -15,7 +15,7 @@
     <!-- zona del favicon -->
     <link rel="shortcut icon" href="../Favicon.ico" type="image/x-icon">
     <!-- zona de estilos -->
-    <link rel="stylesheet" href="../static/css/tienda..css">
+    <link rel="stylesheet" href="../static/css/tienda.css">
     <!-- zona de fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,22 +50,23 @@
                 <!-- Carrito de Compras -->
                 <div class="container-icon">
                     <!-- Carrito y contador de productos -->
-                    <div class="container-cart-icon btn-carrito">
+                    <div id="abrirCarrito" class="container-cart-icon btn-carrito">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <div class="count-products">
                             <span id="contador-productos">0</span>
                         </div>
                     </div>
                     <!-- Carrito de compras -->
-                    <div class="container-cart-products carrito hidden">
-                        <i class="fa-solid fa-x icon-close"></i>
+                    <div id="cart" class="cart carrito">
+                        <span class="close-button" id="cerrarCarrito"><i class="fa-solid fa-x"></i> Carrito de
+                            Compras</span>
                         <div class="carrito-items" id="product-container"></div>
 
                         <div class="carrito-total hidden">
                             <div class="carrito-precio-total">
                                 <h3>Total:</h3><span id="total-amount"></span>
                             </div>
-                            <a href="./comprar.html" class="btn-continuar-compra">Continuar</a>
+                            <a class="btn-continuar-compra" href="./comprar.html">Iniciar Compra</a>
                             <button class="btn-vaciar-carrito">Vaciar Carrito</button>
                         </div>
                         <div class="cart-empty">
@@ -89,71 +90,64 @@
                     <div class="filtros-content">
                         <span class="close-button" id="cerrarFiltros"><i class="fa-solid fa-x"></i> Cerrar</span>
                         <div class="">
-                            <!-- Por Marca -->
                             <div class="products-filter">
-                                <h4>Marca del producto</h4>
-                                <input type="radio" id="saphirus" name="saphirus" value="saphirus">
-                                <label for="saphirus">Saphirus</label><br>
-                                <input type="radio" id="milano" name="milano" value="milano">
-                                <label for="milano">Milano Cosmetic</label><br>
-                                <input type="radio" id="ambar" name="ambar" value="ambar">
-                                <label for="ambar">Amaber</label>
-                            </div>
-                            <!-- Por tipo de producto -->
-                            <div class="products-filter">
-                                <h4>Categoría del producto</h4>
-                                <input type="checkbox" id="aceite-esenciales" name="aceite-esenciales"
-                                    value="aceite-esenciales">
-                                <label for="aceite-esenciales"> aceite esenciales</label><br>
-                                <input type="checkbox" id="aerosol" name="aerosol" value="aerosol">
-                                <label for="aerosol"> aerosoles</label><br>
-                                <input type="checkbox" id="agua-micelar" name="agua-micelar" value="agua-micelar">
-                                <label for="agua-micelar"> agua micelar</label><br>
-                                <input type="checkbox" id="air-cool" name="air-cool" value="air-cool">
-                                <label for="air-cool"> air cool</label><br>
-                                <input type="checkbox" id="antihumedad" name="antihumedad" value="antihumedad">
-                                <label for="antihumedad"> antihumedad</label><br>
-                                <input type="checkbox" id="body-splash" name="body-splash" value="body-splash">
-                                <label for="body-splash"> body-splash</label><br>
-                                <input type="checkbox" id="caritas" name="caritas" value="caritas">
-                                <label for="caritas"> caritas</label><br>
-                                <input type="checkbox" id="difusor" name="difusor" value="difusor">
-                                <label for="difusor"> difusores</label><br>
-                                <input type="checkbox" id="difusor-premium" name="difusor-premium"
-                                    value="difusor-premium">
-                                <label for="difusor-premium"> difusores premium</label><br>
-                                <input type="checkbox" id="equipo-aromatizador" name="equipo-aromatizador"
-                                    value="equipo-aromatizador">
-                                <label for="equipo-aromatizador"> equipos aromatizadores</label><br>
-                                <input type="checkbox" id="home-spray" name="home-spray" value="home-spray">
-                                <label for="home-spray"> home spray</label><br>
-                                <input type="checkbox" id="hornillo-velas" name="hornillo-velas" value="hornillo-velas">
-                                <label for="hornillo-velas"> hornillos y velas</label><br>
-                                <input type="checkbox" id="jabon-liquido" name="jabon-liquido" value="jabon-liquido">
-                                <label for="jabon-liquido"> jabon liquido</label><br>
-                                <input type="checkbox" id="lata-aromatica" name="lata-aromatica" value="lata-aromatica">
-                                <label for="lata-aromatica"> lata aromatica</label><br>
-                                <input type="checkbox" id="mini" name="mini" value="mini">
-                                <label for="mini"> mini</label><br>
-                                <input type="checkbox" id="pack-premium" name="pack-premium" value="pack-premium">
-                                <label for="pack-premium"> pack premium</label><br>
-                                <input type="checkbox" id="perfume-mini" name="perfume-mini" value="perfume-mini">
-                                <label for="perfume-mini"> perfumes mini</label><br>
-                                <input type="checkbox" id="perfume-fino" name="perfume-fino" value="perfume-fino">
-                                <label for="perfume-fino"> perfumes finos</label><br>
-                                <input type="checkbox" id="route" name="route" value="route">
-                                <label for="route"> route 66</label><br>
-                                <input type="checkbox" id="sahumerios" name="sahumerios" value="sahumerios">
-                                <label for="sahumerios"> sahumerios</label><br>
-                                <input type="checkbox" id="Sensaciones" name="Sensaciones" value="Sensaciones">
-                                <label for="Sensaciones"> Sensaciones</label><br>
-                                <input type="checkbox" id="tarjeta-aromatica" name="tarjeta-aromatica"
-                                    value="tarjeta-aromatica">
-                                <label for="tarjeta-aromatica"> tarjetas aromaticas</label><br>
-                                <input type="checkbox" id="textil" name="textil" value="textil">
-                                <label for="textil"> textiles</label><br>
-                                <input type="checkbox" id="all" name="all" value="all">
-                                <label for="all"> Todos los Productos</label><br>
+                                <div class="dropdown">
+                                    <div class="saphirus">
+                                        <a href="./tienda.html">
+                                            <img loading="lazy" decoding="async"
+                                                src="https://saphirus.com.ar/wp-content/uploads/2022/04/logo-saphirus-.png">
+                                        </a>
+                                        <button class="dropdown-btn-saphirus" onclick="saphirusDropdown()">
+                                            <i class="fa-solid fa-angle-down angle-down"></i>
+                                        </button>
+                                    </div>
+                                    <div class="dropdown-content-saphirus">
+                                        <form>
+                                            <input type="checkbox" name="aceite-esencial" id="aceite-esencial" value="aceite-esencial">
+                                            <label for="aceite-esencial" class="label-filter">
+                                                <img src="https://saphirus.com.ar/wp-content/uploads/2022/04/icon-aceite.svg" alt="Aceite Esencial"> Aceites Esenciales
+                                            </label>
+                                            <input type="checkbox" name="aerosol" id="aerosol" value="aerosol">
+                                                <label for="aceite-esencial" class="label-filter">
+                                                    <img src="https://saphirus.com.ar/wp-content/uploads/2022/04/icon-aerosol.svg" alt="Aerosol"> Aerosoles
+                                                </label>
+                                            </label>
+                                            <input type="checkbox" name="air-cool" id="air-cool" value="air-cool">
+                                                <label for="air-cool" class="label-filter">
+                                                    <img src="https://saphirus.com.ar/wp-content/uploads/2022/04/icon-air-cool.svg" alt="Air Cool"> Air Cool
+                                                </label>
+                                            </label>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="dropdown">
+                                    <div class="ambar">
+                                        <a href="./tienda.html">
+                                            <img loading="lazy" decoding="async"
+                                                src="https://saphirus.com.ar/wp-content/uploads/2022/04/logo-ambar-aromas.png">
+                                        </a>
+                                        <button class="dropdown-btn-ambar" onclick="amberDropdown()">
+                                            <i class="fa-solid fa-angle-down angle-down"></i>
+                                        </button>
+                                    </div>
+                                    <div class="dropdown-content-ambar">
+                                        <p>Contenido del párrafo dentro del dropdown.</p>
+                                    </div>
+                                </div>
+                                <div class="dropdown">
+                                    <div class="milano">
+                                        <a href="./tienda.html">
+                                            <img loading="lazy" decoding="async"
+                                                src="https://saphirus.com.ar/wp-content/uploads/2022/04/logo-milano-cosmetics.png">
+                                        </a>
+                                        <button class="dropdown-btn-milano" onclick="milanoDropdown()">
+                                            <i class="fa-solid fa-angle-down angle-down"></i>
+                                        </button>
+                                    </div>
+                                    <div class="dropdown-content-milano">
+                                        <p>Contenido del párrafo dentro del dropdown.</p>
+                                    </div>
+                                </div>
                             </div>
                             <!-- Por Precio -->
                             <div class="products-filter">
@@ -172,13 +166,10 @@
                 <!-- Productos -->
                 <div id="productos-container" class="contenedor-items"></div>
                 <div id="pagination">
-                    <div class="page-btn" id="prev-page"><</div>
+                    <div class="page-btn" id="prev-page"><i class="fa-solid fa-angle-left"></i></div>
                     <div id="pagination-numbers"></div>
-                    <div class="page-btn" id="next-page">></div>
+                    <div class="page-btn" id="next-page"><i class="fa-solid fa-angle-right"></i></div>
                 </div>
-                <section class="contenedor">
-                    <!-- <div class="contenedor-items" id="contenedor-items"></div> -->
-                </section>
             </article>
         </section>
         <a href="https://api.whatsapp.com/send?phone=5491175049581&text=¡Hola,%20me%20gustaría%20recibir

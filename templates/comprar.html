@@ -52,77 +52,67 @@
     </header>
     <main>
         <section id="form-compra">
+            <div id="info-compra">
+                <div class="info-compra">
+                    <p>Ver detalles de mi compra</p>
+                    <div class="dropdown">
+                        <button type="button" class="dropdown-btn" onclick="mostrarCarrito()">
+                            <i class="fa-solid fa-angle-down"></i>
+                        </button>
+                        <div class="dropdown-content"></div>
+                    </div>
+                </div>
+                <div class="total-compra"></div>
+            </div>
             <h1 class="titulo-form-compra">Confirmación de Compra</h1>
 
             <form>
-                <ul class="marcador-step">
-                    <li class="active" id="li1">1</li>
-                    <li id="li2">2</li>
-                    <li id="li3">3</li>
+                <ul class="compra-timeline">
+                    <li>
+                        <button class="compra-timeline-item disabled" aria-disabled="true" tabindex="-1">
+                            <div class="compra-timeline-item-icon">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <p class="compra-timeline-item-text">Carrito</p>
+                        </button>
+                    </li>
+                    <li class="compra-timeline-line"></li>
+                    <li>
+                        <button class="compra-timeline-item active">
+                            <div class="compra-timeline-item-icon">
+                                <i class="fa-solid fa-truck-fast"></i>
+                            </div>
+                            <p class="compra-timeline-item-text">Entrega</p>
+                        </button>
+                    </li>
+                    <li class="compra-timeline-line"></li>
+                    <li>
+                        <button class="compra-timeline-item disabled" aria-disabled="true" tabindex="-1">
+                            <div class="compra-timeline-item-icon">
+                                <i class="fa-regular fa-credit-card"></i>
+                            </div>
+                            <p class="compra-timeline-item-text">Pago</p>
+                        </button>
+                    </li>
                 </ul>
-                <div id="step1" class="step active">
-                    <h2>Datos Personales</h2>
+                <div class="step">
+                    <h2>Datos de contacto</h2>
                     <div class="step-content">
-                        <div>
-                            <label for="nombre-completo">Nombre Completo:</label>
-                            <input type="text" name="nombre-completo" class="input-datos-personales"
-                                placeholder="Nombre completo" required>
-                        </div>
-                        <div>
-                            <label for="nombre-completo">Correo electrónico:</label>
-                            <input type="email" name="email" class="input-datos-personales" placeholder="Correo electrónico"
-                                required>
-                        </div>
-                        <div>
-                            <label for="nombre-completo">Teléfono de contacto:</label>
-                            <input type="number" name="telefono" class="input-datos-personales" placeholder="Teléfono"
-                                required>
-                        </div>
+                        <input type="email" name="email" class="input-datos-personales" placeholder="Correo electrónico"
+                            required />
                     </div>
-                    <button type="button" onclick="nextStep()" class="btn-step">Confirmar</button>
                 </div>
-                <div id="step2" class="step">
-                    <h2>Paso 2</h2>
-                    <div class="step-content">
-                        <div>
-                            <label for="nombre-completo">Nombre Completo:</label>
-                            <input type="text" name="nombre-completo" class="input-datos-personales"
-                                placeholder="Nombre completo" required>
-                        </div>
-                        <div>
-                            <label for="nombre-completo">Correo electrónico:</label>
-                            <input type="email" name="email" class="input-datos-personales" placeholder="Correo electrónico"
-                                required>
-                        </div>
-                        <div>
-                            <label for="nombre-completo">Teléfono de contacto:</label>
-                            <input type="number" name="telefono" class="input-datos-personales" placeholder="Teléfono"
-                                required>
-                        </div>
+                <div class="step">
+                    <h2>Entrega</h2>
+                    <div class="step-content input">
+                        <input class="input-datos-personales" id="CP" type="number" placeholder="Código postal"
+                            required />
+                        <span class="link-cp">
+                            <a href="https://www.correoargentino.com.ar/formularios/cpa" target="_blank">Encontrá tu
+                                CP</a>
+                        </span>
+                        <button class="btn-form">Continuar</button>
                     </div>
-                    <button type="button" onclick="nextStep()" class="btn-step">Confirmar</button>
-                </div>
-                <div id="step3" class="step">
-                    <h2>Paso 3</h2>
-                    <div class="step-content">
-                        <div>
-                            <label for="nombre-completo">Nombre Completo:</label>
-                            <input type="text" name="nombre-completo" class="input-datos-personales"
-                                placeholder="Nombre completo" required>
-                        </div>
-                        <div>
-                            <label for="nombre-completo">Correo electrónico:</label>
-                            <input type="email" name="email" class="input-datos-personales" placeholder="Correo electrónico"
-                                required>
-                        </div>
-                        <div>
-                            <label for="nombre-completo">Teléfono de contacto:</label>
-                            <input type="number" name="telefono" class="input-datos-personales" placeholder="Teléfono"
-                                required>
-                        </div>
-                    </div>
-                    <button type="button" onclick="" class="btn-step">Confirmar</button>
-                </div>
             </form>
         </section>
     </main>

@@ -72,11 +72,16 @@ a {
     text-decoration: none;
 }
 
+button {
+    background: none;
+    border: none;
+}
+
 main {
     width: 100vw;
     position: relative;
     padding-top: 1em;
-    top: 18vw;
+    top: 20vw;
     left: 0;
     overflow-y: hidden;
 }
@@ -115,14 +120,14 @@ footer {
 /********************************** Scroll to top *************************/
 .icon-wsp {
     display: block;
-    padding: .3em;
+    padding: .2em;
 
     position: fixed;
     bottom: 10px;
     right: 10px;
 
     visibility: visible;
-    background-color: var(--secondary-color);
+    background-color: #1b982c;
     border-radius: 50%;
 
     font-size: 2em;
@@ -356,10 +361,10 @@ nav .navCloseBtn {
     padding: 1.2em;
 }
 
-.close-button {
+.filtros .close-button {
     position: absolute;
-    top: -1em;
-    right: 1em;
+    top: -2em;
+    left: 17em;
 
     font-size: 1em;
     cursor: pointer;
@@ -380,6 +385,69 @@ nav .navCloseBtn {
     color: var(--bg-dark);
 
     border-bottom: 1px solid var(--bg-dark);
+}
+
+input[type=checkbox] {
+    display: none;
+    margin: 0 1rem 0 1rem;
+}
+
+label img {
+    width: 4em;
+}
+
+.label-filter {
+    display: flex;
+    align-items: center;
+}
+
+.saphirus,
+.ambar,
+.milano {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+}
+
+.saphirus a img,
+.ambar a img,
+.milano a img {
+    width: 14em;
+}
+
+.angle-down {
+    background-color: var(--secondary-color);
+    color: var(--bg-light);
+    padding: .5em .6em;
+
+    line-height: 1em;
+
+    border-radius: 50%;
+
+    margin-right: .5em;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    border: 1px solid rgba(0, 0, 0, 0.363);
+
+    border-radius: .5em;
+    margin-bottom: .5em;
+}
+
+.dropdown-content-saphirus,
+.dropdown-content-ambar,
+.dropdown-content-milano {
+    display: none;
+    padding: 12px 16px;
+}
+
+.dropdown-btn-saphirus.active,
+.dropdown-btn-ambar.active,
+.dropdown-btn-milano.active {
+    transform: rotate(180deg);
 }
 
 .products-filter-dropdown {
@@ -409,6 +477,11 @@ nav .navCloseBtn {
     color: var(--third-color);
 }
 
+.shopping-cart {
+    width: 1.2em;
+    color: var(--third-color);
+}
+
 .count-products {
     position: absolute;
     top: -12px;
@@ -427,6 +500,36 @@ nav .navCloseBtn {
 
 #contador-productos {
     font-size: .5em;
+}
+
+.cart {
+    height: 100vh;
+    padding-top: 3em;
+
+    width: 0vw;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    right: 0;
+
+    background-color: var(--bg-light);
+    overflow-y: auto;
+    transition: 0.5s;
+}
+
+.close-button {
+    position: absolute;
+    top: 1.2em;
+    left: 1em;
+
+    font-size: .8em;
+    cursor: pointer;
+
+    color: var(--bg-dark);
+}
+
+.close-button:hover {
+    color: var(--third-color);
 }
 
 /************************** Lista de Productos - Carrito ********************************/
@@ -459,23 +562,54 @@ nav .navCloseBtn {
 }
 
 .carrito-items {
-    max-height: 9em;
+    max-height: 74vh;
     overflow-y: scroll;
 }
 
 .cart-product {
     display: flex;
+    flex-direction: column;
     align-items: baseline;
     justify-content: space-between;
     padding: .5em;
-
-    border-bottom: 1px solid rgba(0, 0, 0, 0.20);
+    position: relative;
 }
 
 .info-cart-product {
     display: flex;
     justify-content: space-between;
-    flex: 1;
+    align-items: center;
+}
+
+.img-producto {
+    width: 3em;
+}
+
+.info-cant-product {
+    width: 100%;
+    padding-left: 2em;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btns {
+    margin-left: 1em;
+    background-color: white;
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: .5em;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.less-cantidad,
+.more-cantidad {
+    width: 3em;
+    padding: .5em 0;
+
+    text-align: center;
+    font-size: .6em;
+    color: var(--bg-dark);
 }
 
 .titulo-producto-carrito {
@@ -495,13 +629,13 @@ nav .navCloseBtn {
 }
 
 .icon-remove {
+    position: absolute;
+    right: 1em;
     background: none;
     border: none;
     font-size: .7em;
     font-weight: 500;
-    color: var(--bg-dark);
-    margin-left: 1em;
-    margin-top: .5em;
+    color: var(--third-color);
 }
 
 .icon-remove:hover {
@@ -510,11 +644,19 @@ nav .navCloseBtn {
 }
 
 .carrito-total {
+    position: absolute;
+
+    width: 100%;
+    padding: .5em 0;
+    margin-top: 1em;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: .5em 0;
+    z-index: 6;
+
+    box-shadow: 0px -4px 9px 0px rgba(0, 0, 0, 0.2);
 }
 
 .carrito-precio-total {
@@ -536,10 +678,9 @@ nav .navCloseBtn {
 .btn-continuar-compra {
     width: 50%;
     padding: .5em 0;
-    margin-top: .8em;
+    margin-top: .5em;
 
     text-align: center;
-    text-transform: uppercase;
     font-size: .7em;
     font-weight: bolder;
 
@@ -684,48 +825,20 @@ nav .navCloseBtn {
 }
 
 .boton-item {
-    width: 60%;
+    width: 100%;
     padding: .6em 0;
 
     text-align: center;
-    text-transform: uppercase;
-    font-family: var(--third-font);
     font-size: .8em;
     font-weight: bolder;
 
     background-color: var(--secondary-color);
+    font-family: var(--secondary-font);
     color: var(--bg-dark);
     border: none;
     border-radius: .5em;
 
     transition: all 0.3s ease-in;
-}
-
-.boton-item:hover {
-    background-color: var(--third-color);
-    color: var(--bg-light);
-}
-
-.restar-cantidad,
-.sumar-cantidad {
-    width: 20%;
-    padding: .5em 0;
-
-    text-align: center;
-    font-weight: bold;
-    color: var(--bg-dark);
-
-    border: 1px solid rgb(173, 173, 173);
-    border-radius: .5em;
-
-    transition: all 0.3s ease;
-}
-
-.restar-cantidad:hover,
-.sumar-cantidad:hover {
-    background-color: var(--third-color);
-    color: var(--bg-light);
-    border: none;
 }
 
 /************************** FOOTER ********************************/
@@ -753,7 +866,7 @@ nav .navCloseBtn {
     justify-content: center;
     align-items: center;
     gap: 2em;
-    
+
     color: var(--bg-light);
     font-weight: 700;
     font-size: .8em;

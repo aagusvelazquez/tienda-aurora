@@ -489,12 +489,14 @@ navCloseBtn.addEventListener("click", () => {
 });
 
 /* Funcionalidad del botón del Carrito de Compras */
-btnCarrito.addEventListener('click', () => {
-    carrito.classList.toggle('hidden')
-})
-btnListaCarrito.addEventListener('click', () => {
-    carrito.classList.toggle('hidden')
-})
+document.getElementById("abrirCarrito").addEventListener("click", function () {
+    document.getElementById("cart").style.width = "100vw";
+});
+
+document.getElementById("cerrarCarrito").addEventListener("click", function () {
+    document.getElementById("cart").style.width = "0";
+});
+
 
 /* Funcionalidad del botón 'scroll to top' */
 window.onload = () => {
@@ -609,9 +611,7 @@ prodDestSaphirus.forEach(producto => {
     <p class="badge">${producto.brand}</p>
     <p class="precio-item">$${producto.price}</p>
     <div class="btns-producto">
-      <button class="restar-cantidad" onclick="cambiarCantidad('restar', ${producto.id})">-</button>
-      <button class="boton-item" onclick="agregarAlCarrito(${producto.id})">Comprar</button>
-      <button class="sumar-cantidad" onclick="cambiarCantidad('sumar', ${producto.id})">+</button>
+      <button class="boton-item" onclick="agregarAlCarrito(${producto.id})">Agregar al Carrito</button>
     </div>
 </div>
   `;
@@ -627,9 +627,7 @@ prodDestMilano.forEach(producto => {
     <p class="badge">${producto.brand}</p>
     <p class="precio-item">$${producto.price}</p>
     <div class="btns-producto">
-      <button class="restar-cantidad" onclick="cambiarCantidad('restar', ${producto.id})">-</button>
-      <button class="boton-item" onclick="agregarAlCarrito(${producto.id})">Comprar</button>
-      <button class="sumar-cantidad" onclick="cambiarCantidad('sumar', ${producto.id})">+</button>
+      <button class="boton-item" onclick="agregarAlCarrito(${producto.id})">Agregar al Carrito</button>
     </div>
 </div>
   `;
@@ -639,15 +637,13 @@ destacadosMilano.innerHTML += `<a href="../templates/tienda.html" class="tab-bod
 // Productos Tab 'Ambar'
 prodDestAmbar.forEach(producto => {
   destacadosAmbar.innerHTML += `
-  <div class="producto-tab">
+  <div class="producto-tab" id="${producto.id}">
     <img src="${producto.thumbnail}" alt="${producto.title}" class="img-item">
     <h3 class="titulo-item">${producto.title}</h3>
     <p class="badge">${producto.brand}</p>
     <p class="precio-item">$${producto.price}</p>
     <div class="btns-producto">
-      <button class="restar-cantidad" onclick="cambiarCantidad('restar', ${producto.id})">-</button>
-      <button class="boton-item" onclick="agregarAlCarrito(${producto.id})">Comprar</button>
-      <button class="sumar-cantidad" onclick="cambiarCantidad('sumar', ${producto.id})">+</button>
+      <button class="boton-item" onclick="agregarAlCarrito(${producto.id})">Agregar al Carrito</button>
     </div>
 </div>
   `;
@@ -660,18 +656,17 @@ function agregarAlCarrito(productoId) {
     const productosDelCarrito = carritoItems.find(p => p.id === productoId);
     if (!productosDelCarrito) {
         carritoItems.push({ ...producto, cant: 1 });
-
-        carrito.classList.toggle('hidden')
+        document.getElementById("cart").style.width = "100vw";
         // Oculta el carrito luego de 3 segundos.
         setTimeout(function () {
-            carrito.classList.toggle('hidden')
-        }, 3000);
+            document.getElementById("cart").style.width = "0vw";
+        }, 2000);
     } else {
         Swal.fire({
             title: "¡El producto ya se encuentra en el carrito!",
             text: "Modifique la cantidad desde allí.",
             icon: "warning"
-          });
+        });
     }
 
     actualizarCarrito();
@@ -704,7 +699,6 @@ btnVaciarCarrito.addEventListener("click", () => {
 
         total.classList.remove('hidden');
         emptyCart.classList.add('hidden');
-        carrito.classList.toggle('hidden');
         Swal.fire({
             title: "Se ha vaciado el carrito con éxito.",
             icon: "success"
@@ -723,11 +717,18 @@ function actualizarCarrito() {
         cartContainer.innerHTML += `
             <div class="cart-product">
                 <div class="info-cart-product">
-                    <span class="cantidad-producto-carrito">${item.cant}x</span>
+                    <img class="img-producto" src="${item.thumbnail}">
                     <span class="titulo-producto-carrito">${item.title}</span>
-                    <span class="precio-producto-carrito">$${item.price}</span> 
+                    <button class="icon-remove" onclick="removeFromCart(${item.id})"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
-                <button class="icon-remove" onclick="removeFromCart(${item.id})">X</button>
+                <div class="info-cant-product">
+                    <div class="btns">
+                    <button class="less-cantidad" onclick="cambiarCantidad('restar', ${item.id})">-</button>
+                    <span class="cantidad-producto-carrito">${item.cant}</span>
+                    <button class="more-cantidad" onclick="cambiarCantidad('sumar', ${item.id})">+</button>
+                    </div>
+                    <span class="precio-producto-carrito">$${item.price}</span>
+                </div>
             </div>
         `;
     });

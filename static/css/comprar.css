@@ -35,21 +35,21 @@ Descripcion: este archivo CSS contiene los estilos para el index.htmll
 ::-webkit-scrollbar {
     width: 13px;
 }
-  
+
 /* Carril del scroll */
 ::-webkit-scrollbar-track {
     background-color: var(--secondary-color);
 }
-   
+
 /* Almohadilla del scroll */
 ::-webkit-scrollbar-thumb {
     background-color: var(--primary-color);
     border-radius: 5px;
 }
-  
+
 /* Almohadilla on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background:var(--third-color);
+    background: var(--third-color);
 }
 
 * {
@@ -87,7 +87,7 @@ nav {
     top: 0;
     left: 0;
     z-index: 2;
-    
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -112,7 +112,7 @@ nav .nav-links {
     transition: all 0.4s ease;
 }
 
-nav ul ~ div {
+nav ul~div {
     display: flex;
     align-items: center;
     gap: 1em;
@@ -215,10 +215,138 @@ nav .navCloseBtn {
     color: var(--third-color);
 }
 
+/********************************** Listado de Carrito *************************/
+#info-compra {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-compra {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+}
+
+.info-compra p {
+    order: 2;
+    font-size: .8em;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+
+    order: 1;
+}
+
+.dropdown-btn {
+    margin-left: .4em;
+    padding: .2em .3em;
+
+    background-color: var(--secondary-color);
+    color: var(--bg-light);
+
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dropdown-btn.active {
+    transform: rotate(180deg);
+}
+
+.total-compra {
+    margin-right: .4em;
+    padding: .3em .5em;
+
+    background-color: var(--secondary-color);
+    color: var(--bg-dark);
+
+    border-radius: .4em;
+}
+
+.dropdown-content {
+    width: 100vw;
+    padding: 1em 1.4em;
+
+    position: absolute;
+    top: 1.7em;
+    left: 0;
+
+    display: none;
+
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+
+    z-index: 1;
+}
+
+.cart-product {
+    position: relative;
+
+    padding: .5em;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.info-cart-product {
+    width: 75%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.img-producto {
+    width: 5em;
+}
+
+.info-price-product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.titulo-producto-carrito {
+    font-size: .9em;
+}
+
+.precio-producto-carrito {
+    font-weight: bolder;
+    font-size: 1em;
+}
+
+.carrito-total {
+    width: 100%;
+    padding: .5em;
+    margin-top: 1em;
+
+    border-top: 1px solid var(--bg-dark);
+}
+
+.carrito-precio-total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+#total-amount {
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
 /********************************** FORM COMPRA *************************/
 #form-compra {
-    margin: 6em 0;
+    margin: 5em 0;
 }
+
 .titulo-form-compra {
     margin: 1em 0;
     text-align: center;
@@ -228,40 +356,69 @@ form {
     width: 100vw;
 }
 
-.marcador-step {
+.compra-timeline {
+    list-style-type: none;
+    padding: .1em 2.5em;
+
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 3em;
 }
 
-.marcador-step li {
-    padding: .2em .7em;
+.compra-timeline .compra-timeline-item {
+    width: 1.5em;
 
-    background-color: var(--third-color);
-    color: var(--bg-light);
-    line-height: 1.5em;
-    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border: none;
+    text-align: center;
+
+    cursor: pointer;
+    opacity: .6;
 }
 
-.marcador-step li.active {
-    background-color: var(--primary-color);
+.compra-timeline .compra-timeline-item.disabled {
+    pointer-events: none;
+}
+
+.compra-timeline .compra-timeline-item .compra-timeline-item-icon {
+    width: 1.7em;
+    height: 1.7em;
+    border-radius: 100%;
+    background-color: var(--secondary-color);
     color: var(--bg-dark);
-    border: 1px solid var(--bg-dark);
-    outline: none;
+}
+
+.compra-timeline .compra-timeline-item .compra-timeline-item-icon i {
+    font-size: .9em;
+    margin-top: .4em;
+}
+
+.compra-timeline .compra-timeline-item .compra-timeline-item-text {
+    margin: 5px 0 0;
+    font-family: var(--third-font);
+}
+
+.compra-timeline .compra-timeline-line {
+    flex-grow: 1;
+    height: 1px;
+    background: var(--bg-dark);
+    opacity: .6;
+    position: relative;
+    top: -10px;
 }
 
 .step {
     width: 90vw;
-    margin: 2em auto;
+    margin: 1em auto;
     padding: 1em 1.5em;
 
     text-align: center;
-    
-    background-color: var(--primary-color);
+
     border-radius: .5em;
-    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.6);
-    display: none;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2);
 }
 
 .active {
@@ -280,22 +437,36 @@ form {
     margin: 1em 0;
 }
 
-.btn-step {
-    padding: .5em 4em;
+.input {
+    position: relative;
+}
 
-    font-family: var(--third-font);
-    font-weight: 500;
-    font-size: 1em;
+.link-cp {
+    position: absolute;
+    top: 2em;
+    right: .8em;
 
+    font-size: .8em;
+    text-decoration: underline;
+
+    cursor: pointer;
+}
+
+.btn-form {
+    width: 100%;
+    padding: .5em;
+    margin-top: 1em;
+
+    background-color: var(--primary-color);
     border: none;
     border-radius: .5em;
-    background-color: var(--secondary-color);
-    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.3);
+
+    color: var(--bg-dark);
+    font-family: var(--third-font);
+    font-size: 1em;
 }
 
-.hidden {
-    display: none;
-}
 
 /************************** FOOTER ********************************/
 .container {
@@ -322,7 +493,7 @@ form {
     justify-content: center;
     align-items: center;
     gap: 2em;
-    
+
     color: var(--bg-light);
     font-weight: 700;
     font-size: .8em;

@@ -50,22 +50,22 @@
                 <!-- Carrito de Compras -->
                 <div class="container-icon">
                     <!-- Carrito y contador de productos -->
-                    <div class="container-cart-icon btn-carrito">
+                    <div id="abrirCarrito" class="container-cart-icon btn-carrito">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <div class="count-products">
                             <span id="contador-productos">0</span>
                         </div>
                     </div>
                     <!-- Carrito de compras -->
-                    <div class="container-cart-products carrito hidden">
-                        <i class="fa-solid fa-x icon-close"></i>
+                    <div id="cart" class="cart carrito">
+                        <span class="close-button" id="cerrarCarrito"><i class="fa-solid fa-x"></i> Carrito de Compras</span>
                         <div class="carrito-items" id="product-container"></div>
 
                         <div class="carrito-total hidden">
                             <div class="carrito-precio-total">
                                 <h3>Total:</h3><span id="total-amount"></span>
                             </div>
-                            <a class="btn-continuar-compra" href="./templates/comprar.html">Continuar</a>
+                            <a class="btn-continuar-compra" href="./templates/comprar.html">Iniciar Compra</a>
                             <button class="btn-vaciar-carrito">Vaciar Carrito</button>
                         </div>
                         <div class="cart-empty">
@@ -74,6 +74,8 @@
                         </div>
                     </div>
                 </div>
+
+                
             </div>
         </nav>
     </header>
@@ -448,19 +450,19 @@
 
             <div id="tab1" class="tab active">
                 <div class="tarjetas container-saphirus">
-                    
+
                 </div>
             </div>
 
             <div id="tab2" class="tab">
                 <div class="tarjetas container-milano">
-                    
+
                 </div>
             </div>
 
             <div id="tab3" class="tab">
                 <div class="tarjetas container-ambar">
-                    
+
                 </div>
             </div>
         </section>

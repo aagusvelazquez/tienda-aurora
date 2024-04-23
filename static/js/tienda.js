@@ -243,12 +243,13 @@ navCloseBtn.addEventListener("click", () => {
 });
 
 /* Funcionalidad del botón del Carrito de Compras */
-btnCarrito.addEventListener('click', () => {
-    carrito.classList.toggle('hidden')
-})
-btnListaCarrito.addEventListener('click', () => {
-    carrito.classList.toggle('hidden')
-})
+document.getElementById("abrirCarrito").addEventListener("click", function () {
+    document.getElementById("cart").style.width = "100vw";
+});
+
+document.getElementById("cerrarCarrito").addEventListener("click", function () {
+    document.getElementById("cart").style.width = "0";
+});
 
 /* Funcionalidad del botón 'scroll to top' */
 window.onload = () => {
@@ -265,173 +266,55 @@ window.onscroll = () => {
     }
 };
 
-// Paginación
-/*
-document.addEventListener('DOMContentLoaded', function() {
-    const products = [
-        {
-            id: 1,
-            name: 'Producto 1'
-        },
-        {
-            id: 2,
-            name: 'Producto 2'
-        },
-        {
-            id: 3,
-            name: 'Producto 3'
-        },
-        {
-            id: 4,
-            name: 'Producto 4'
-        },
-        {
-            id: 5,
-            name: 'Producto 5'
-        },
-        {
-            id: 6,
-            name: 'Producto 6'
-        },
-        {
-            id: 7,
-            name: 'Producto 7'
-        },
-        {
-            id: 8,
-            name: 'Producto 8'
-        },
-        {
-            id: 9,
-            name: 'Producto 9'
-        },
-        {
-            id: 10,
-            name: 'Producto 10'
-        },
-        {
-            id: 12,
-            name: 'Producto 12'
-        },
-        {
-            id: 13,
-            name: 'Producto 13'
-        },
-        {
-            id: 15,
-            name: 'Producto 15'
-        },
-        {
-            id: 16,
-            name: 'Producto 16'
-        },
-        {
-            id: 17,
-            name: 'Producto 17'
-        },
-        {
-            id: 18,
-            name: 'Producto 18'
-        },
-        {
-            id: 19,
-            name: 'Producto 19'
-        },
-        {
-            id: 20,
-            name: 'Producto 20'
-        },
-        {
-            id: 21,
-            name: 'Producto 21'
-        },
-        {
-            id: 22,
-            name: 'Producto 22'
-        },
-        {
-            id: 23,
-            name: 'Producto 23'
-        },
-        {
-            id: 24,
-            name: 'Producto 24'
-        }
-    ];
-    let currentPage = 1;
-    const productsPerPage = 8;
-
-    function displayProducts(page) {
-        const start = (page - 1) * productsPerPage;
-        const end = start + productsPerPage;
-        const productsToShow = products.slice(start, end);
-        console.log(productsToShow);
-
-        const container = document.getElementById('productos-container');
-        productsToShow.forEach(product => {
-            container.innerHTML += `
-            <div class="product">
-                <span class="cantidad-producto-carrito">${product.name}</span>
-            </div>
-        `;
-        });
-
-    }
-
-    function setupPagination(totalProducts, productsPerPage) {
-        const pageCount = Math.ceil(totalProducts / productsPerPage);
-
-        const prevButton = document.getElementById('prev-page');
-        const nextButton = document.getElementById('next-page');
-        const paginationNumbers = document.getElementById('pagination-numbers');
-
-        prevButton.addEventListener('click', () => {
-            if (currentPage > 1) {
-                currentPage--;
-                updatePagination();
-            }
-        });
-
-        nextButton.addEventListener('click', () => {
-            if (currentPage < pageCount) {
-                currentPage++;
-                updatePagination();
-            }
-        });
-
-        function updatePagination() {
-            paginationNumbers.innerHTML = '';
-
-            // Crea los números de página
-            for (let i = -1; i <= 1; i++) {
-                if (currentPage + i > 0 && currentPage + i <= pageCount) {
-                    const pageNum = currentPage + i;
-                    const pageLink = document.createElement('span');
-                    pageLink.textContent = pageNum;
-                    pageLink.onclick = () => {
-                        currentPage = pageNum;
-                        updatePagination();
-                    };
-                    if (pageNum === currentPage) {
-                        pageLink.style.fontWeight = 'bold';
-                    }
-                    paginationNumbers.appendChild(pageLink);
-                }
-            }
-
-            displayProducts(currentPage);
-            prevButton.disabled = currentPage === 1;
-            nextButton.disabled = currentPage === pageCount;
-        }
-
-        updatePagination();
-    }
-
-    setupPagination(products.length, productsPerPage);
+/* Filtros */
+document.getElementById("abrirFiltros").addEventListener("click", function () {
+    document.getElementById("filters").style.width = "90vw";
 });
-*/
 
-document.addEventListener('DOMContentLoaded', function() {
+document.getElementById("cerrarFiltros").addEventListener("click", function () {
+    document.getElementById("filters").style.width = "0";
+});
+
+function saphirusDropdown() {
+    var dropdownContent = document.querySelector('.dropdown-content-saphirus');
+    var dropdownBtn = document.querySelector('.dropdown-btn-saphirus');
+
+    if (dropdownContent.style.display === 'block') {
+        dropdownContent.style.display = 'none';
+        dropdownBtn.classList.remove('active');
+    } else {
+        dropdownContent.style.display = 'block';
+        dropdownBtn.classList.add('active');
+    }
+}
+
+function amberDropdown() {
+    var dropdownContent = document.querySelector('.dropdown-content-ambar');
+    var dropdownBtn = document.querySelector('.dropdown-btn-ambar');
+
+    if (dropdownContent.style.display === 'block') {
+        dropdownContent.style.display = 'none';
+        dropdownBtn.classList.remove('active');
+    } else {
+        dropdownContent.style.display = 'block';
+        dropdownBtn.classList.add('active');
+    }
+}
+
+function milanoDropdown() {
+    var dropdownContent = document.querySelector('.dropdown-content-milano');
+    var dropdownBtn = document.querySelector('.dropdown-btn-milano');
+
+    if (dropdownContent.style.display === 'block') {
+        dropdownContent.style.display = 'none';
+        dropdownBtn.classList.remove('active');
+    } else {
+        dropdownContent.style.display = 'block';
+        dropdownBtn.classList.add('active');
+    }
+}
+// Paginación
+document.addEventListener('DOMContentLoaded', function () {
     const products = [
         {
             id: 3,
@@ -661,9 +544,7 @@ document.addEventListener('DOMContentLoaded', function() {
               <p class="badge">${producto.brand}</p>
               <p class="precio-item">$${producto.price}</p>
               <div class="btns-producto">
-                <button class="restar-cantidad" onclick="cambiarCantidad('restar', ${producto.id})">-</button>
                 <button class="boton-item" onclick="agregarAlCarrito(${producto.id})">Comprar</button>
-                <button class="sumar-cantidad" onclick="cambiarCantidad('sumar', ${producto.id})">+</button>
               </div>
           </div>
             `;
@@ -719,7 +600,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             displayProducts(currentPage);
         }
-        
+
         updatePagination();
     }
 
@@ -732,12 +613,11 @@ function agregarAlCarrito(productoId) {
     const productosDelCarrito = carritoItems.find(p => p.id === productoId);
     if (!productosDelCarrito) {
         carritoItems.push({ ...producto, cant: 1 });
-
-        carrito.classList.toggle('hidden')
+        document.getElementById("cart").style.width = "100vw";
         // Oculta el carrito luego de 3 segundos.
         setTimeout(function () {
-            carrito.classList.toggle('hidden')
-        }, 3000);
+            document.getElementById("cart").style.width = "0vw";
+        }, 2000);
     } else {
         Swal.fire({
             title: "¡El producto ya se encuentra en el carrito!",
@@ -776,7 +656,6 @@ btnVaciarCarrito.addEventListener("click", () => {
 
         total.classList.remove('hidden');
         emptyCart.classList.add('hidden');
-        carrito.classList.toggle('hidden');
         Swal.fire({
             title: "Se ha vaciado el carrito con éxito.",
             icon: "success"
@@ -795,11 +674,18 @@ function actualizarCarrito() {
         cartContainer.innerHTML += `
             <div class="cart-product">
                 <div class="info-cart-product">
-                    <span class="cantidad-producto-carrito">${item.cant}x</span>
+                    <img class="img-producto" src="${item.thumbnail}">
                     <span class="titulo-producto-carrito">${item.title}</span>
-                    <span class="precio-producto-carrito">$${item.price}</span> 
+                    <button class="icon-remove" onclick="removeFromCart(${item.id})"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
-                <button class="icon-remove" onclick="removeFromCart(${item.id})">X</button>
+                <div class="info-cant-product">
+                    <div class="btns">
+                    <button class="less-cantidad" onclick="cambiarCantidad('restar', ${item.id})">-</button>
+                    <span class="cantidad-producto-carrito">${item.cant}</span>
+                    <button class="more-cantidad" onclick="cambiarCantidad('sumar', ${item.id})">+</button>
+                    </div>
+                    <span class="precio-producto-carrito">$${item.price}</span>
+                </div>
             </div>
         `;
     });
@@ -845,10 +731,3 @@ const guardarEnLocal = () => {
     localStorage.setItem('carrito', JSON.stringify(carritoItems));
 };
 
-document.getElementById("abrirFiltros").addEventListener("click", function () {
-    document.getElementById("filters").style.width = "90vw";
-});
-
-document.getElementById("cerrarFiltros").addEventListener("click", function () {
-    document.getElementById("filters").style.width = "0";
-});
