@@ -522,10 +522,13 @@ label img {
     top: 1.2em;
     left: 1em;
 
-    font-size: .8em;
+    font-size: .7em;
     cursor: pointer;
 
     color: var(--bg-dark);
+}
+.close-button i {
+    font-size: 1em;
 }
 
 .close-button:hover {
@@ -723,12 +726,11 @@ label img {
 }
 
 .cart-empty img {
-    width: 3em;
+    width: 8em;
     opacity: 0.1;
 }
 
 .cart-empty p {
-    font-size: .7em;
     font-weight: 700;
     margin-left: 1em;
     margin-bottom: 1em;

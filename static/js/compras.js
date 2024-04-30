@@ -52,3 +52,53 @@ function calcularTotales() {
     document.getElementById('total-amount').textContent = `$${totalPagar}`;
     document.querySelector('.total-compra').textContent = `$${totalPagar}`;
 }
+
+/*******************************************************************************/
+
+function codigoPostal() {
+    const codigoPostal = document.getElementById("CP").value;
+    let step = document.getElementById("step");
+    let facturacion = document.querySelector(".facturacion");
+    let inputCP = document.getElementById("input-cp");
+    step.classList.toggle("hidden");
+    facturacion.classList.toggle("hidden");
+
+
+    inputCP.innerHTML += `
+    <div class="datos-postal">
+        <i class="fa-solid fa-location-dot"></i>
+        <div>
+            <p>Código Postal ${codigoPostal}</p>
+        </div>
+    </div>
+    <input type="button" class="btn-cp" value="Cambiar" onclick="cambiarCodigo();" />
+    `;
+};
+
+function cambiarCodigo() {
+    let step = document.getElementById("step");
+    step.classList.toggle("hidden");
+    let codigoPostal = document.getElementById("CP");
+    codigoPostal.value = "";
+};
+
+// Mostrar o no form de datos de pago 
+const checkbox = document.querySelector('input[type="checkbox"]').addEventListener('change', function () {
+    let step = document.querySelector(".datos-abono");
+    if (!(this.checked)) {
+        console.log('Checkbox is unchecked');
+        step.classList.toggle("hidden");
+    } else {
+        console.log('Datos de facturacion y entrega iguales');
+        step.classList.toggle("hidden");
+    }
+});
+
+function refresh() {
+    let facturacion = document.querySelector(".facturacion");
+    let abono = document.querySelector(".datos-abono");    
+    let step = document.getElementById("step");
+    step.classList.toggle("hidden");
+    facturacion.classList.toggle("hidden");
+    abono.classList.toggle("hidden");
+}
