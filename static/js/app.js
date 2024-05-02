@@ -616,7 +616,7 @@ prodDestSaphirus.forEach(producto => {
 </div>
   `;
 })
-destacadosSaphirus.innerHTML += `<a href="../templates/tienda.html" class="tab-body-btn">Ver todos los productos</a>`;
+destacadosSaphirus.innerHTML += `<a href="./templates/tienda.html" class="tab-body-btn">Ver todos los productos</a>`;
 
 // Productos Tab 'Milano'
 prodDestMilano.forEach(producto => {
@@ -632,7 +632,7 @@ prodDestMilano.forEach(producto => {
 </div>
   `;
 });
-destacadosMilano.innerHTML += `<a href="../templates/tienda.html" class="tab-body-btn">Ver todos los productos</a>`;
+destacadosMilano.innerHTML += `<a href="./templates/tienda.html" class="tab-body-btn">Ver todos los productos</a>`;
 
 // Productos Tab 'Ambar'
 prodDestAmbar.forEach(producto => {
@@ -648,7 +648,7 @@ prodDestAmbar.forEach(producto => {
 </div>
   `;
 });
-destacadosAmbar.innerHTML += `<a href="../templates/tienda.html" class="tab-body-btn">Ver todos los productos</a>`;
+destacadosAmbar.innerHTML += `<a href="./templates/tienda.html" class="tab-body-btn">Ver todos los productos</a>`;
 
 // Funcionalidad del Carrito de Compras
 function agregarAlCarrito(productoId) {

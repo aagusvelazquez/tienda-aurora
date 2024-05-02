@@ -193,12 +193,12 @@ nav .nav-links a {
     transition: all 0.3s linear;
 }
 
-nav .nav-links li:last-child {
+/* nav .nav-links li:last-child {
     width: 80%;
     padding-top: 1.2em;
     border-top: 1px solid var(--bg-dark);
     text-align: center;
-}
+} */
 
 nav .search-icon {
     color: var(--third-color);
@@ -323,7 +323,7 @@ nav .navCloseBtn {
     display: flex;
     align-items: center;
 
-    background-color: var(--bg-light);
+    background-color: white;
     color: var(--bg-dark);
 
     font-size: .9em;
@@ -400,6 +400,9 @@ label img {
     display: flex;
     align-items: center;
 }
+.label-filter img {
+    width: 2em;
+}
 
 .saphirus,
 .ambar,
@@ -413,7 +416,7 @@ label img {
 .saphirus a img,
 .ambar a img,
 .milano a img {
-    width: 14em;
+    width: 10em;
 }
 
 .angle-down {
@@ -431,7 +434,6 @@ label img {
 .dropdown {
     position: relative;
     display: inline-block;
-    border: 1px solid rgba(0, 0, 0, 0.363);
 
     border-radius: .5em;
     margin-bottom: .5em;

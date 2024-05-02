@@ -181,12 +181,12 @@ nav .nav-links a {
     transition: all 0.3s linear;
 }
 
-nav .nav-links li:last-child {
+/* nav .nav-links li:last-child {
     width: 80%;
     padding-top: 1.2em;
     border-top: 1px solid var(--bg-dark);
     text-align: center;
-}
+} */
 
 nav .search-icon {
     color: var(--third-color);
@@ -325,16 +325,18 @@ nav .navCloseBtn {
     top: 1.2em;
     left: 1em;
 
-    font-size: .8em;
+    font-size: .7em;
     cursor: pointer;
 
     color: var(--bg-dark);
+}
+.close-button i {
+    font-size: 1em;
 }
 
 .close-button:hover {
     color: var(--third-color);
 }
-
 /************************** Lista de Productos - Carrito ********************************/
 .icon-close {
     font-size: .7em;
@@ -509,12 +511,11 @@ nav .navCloseBtn {
 }
 
 .cart-empty img {
-    width: 3em;
+    width: 8em;
     opacity: 0.1;
 }
 
 .cart-empty p {
-    font-size: .7em;
     font-weight: 700;
     margin-left: 1em;
     margin-bottom: 1em;
@@ -729,7 +730,7 @@ nav .navCloseBtn {
     column-gap: .5em;
     row-gap: .8em;
     
-    background-color: var(--bg-light);
+    background-color: white;
 }
 /* Tarjetas de cada elemento */
 .producto-tab {

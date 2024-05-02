@@ -376,6 +376,7 @@ form {
 
 .compra-timeline .compra-timeline-item {
     width: 1.5em;
+    background-color: white;
 
     display: flex;
     flex-direction: column;
@@ -408,6 +409,7 @@ form {
 .compra-timeline .compra-timeline-item .compra-timeline-item-text {
     margin: 5px 0 0;
     font-family: var(--third-font);
+    background-color: white;
 }
 
 .compra-timeline .compra-timeline-line {
@@ -430,11 +432,7 @@ form {
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2);
 }
 
-.active {
-    display: block;
-}
-
-.step-content{
+.step-content {
     margin: .5em 0;
 }
 
@@ -480,9 +478,10 @@ form {
     font-size: 1em;
 }
 
-.btn-cp{
+.btn-cp {
     border: none;
 
+    background-color: white;
     color: var(--bg-dark);
     font-family: var(--third-font);
     text-decoration: underline;
@@ -492,16 +491,42 @@ form {
 }
 
 #input-cp {
-    height: 20vw;
+    height: 15vw;
     display: flex;
     justify-content: space-between;
     align-items: self-start;
 }
 
+.select-entrega {
+    width: 100%;
+    padding: .8em .5em;
+    margin-bottom: .5em;
+
+    background-color: white;
+    border: 1px solid #7e7e7e48;
+    border-radius: .5em;
+}
+
+.datos-envio {
+    display: flex;
+    flex-flow: row wrap;
+    gap: .5em;
+    padding: .2em 0;
+
+    font-size: .85em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #797878;
+}
+
+.datos-envio span {
+    color: var(--bg-dark);
+    font-weight: bold;
+}
+
 .datos-postal {
     display: flex;
     gap: 1em;
-    
+
     margin-top: 1.2em;
 
     font-size: .8em;
@@ -518,10 +543,12 @@ form {
 .facturacion {
     position: relative;
 }
+
 .datos-facturacion {
     margin-bottom: 1.5em;
 }
-.datos-facturacion #datos-facturacion{
+
+.datos-facturacion #datos-facturacion {
     cursor: pointer;
     width: 1em;
     height: 1em;
@@ -530,7 +557,8 @@ form {
     left: 2em;
     border: 2px solid #888;
 }
-.datos-facturacion label[for="checkbox"]{
+
+.datos-facturacion label[for="checkbox"] {
     position: absolute;
     top: 8.3em;
     left: 4em;
@@ -541,11 +569,12 @@ form {
 .datos-abono {
     margin-top: 3em;
 }
-.datos-abono > h5 {
+
+.datos-abono>h5 {
     text-align: left;
 }
 
-.provincias{
+.provincias {
     display: flex;
     justify-content: space-around;
 
@@ -562,14 +591,124 @@ form {
     padding: .8em;
 }
 
-.provincias select{
+.provincias select {
     border: none;
     margin-top: -.15em;
     margin-left: .3em;
 }
 
-.provincias select:focus{
+.provincias select:focus {
     border: none;
+}
+
+.cod-descuento {
+    width: 90vw;
+    margin: 1.5em auto;
+    padding: 1em 1.5em;
+
+    text-align: center;
+}
+
+.cod-descuento i {
+    color: var(--third-color);
+}
+.cod-descuento input[type="button"] {
+    border: none;
+    text-decoration: underline;
+    font-size: 1em;
+    color: var(--third-color);
+}
+
+.dto-label {
+    width: 100%;
+    height: 3em;
+
+    padding: .8em;
+    
+    border: none;
+    border-bottom: 1px solid var(--third-color);
+
+    margin-top: .5em;
+}
+.dto-label:focus {
+    outline: none;
+}
+
+.validar-btn {
+    position: absolute;
+    top: 1em;
+    right: 0;
+    padding: .5em;
+
+    border: none;
+    border-radius: .5em;
+
+    cursor: pointer;
+}
+
+#dto-label input[type="button"] {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: .8em;
+    background-color: var(--secondary-color);
+    color: var(--bg-light);;
+}
+
+.correo{
+    display: flex;
+    gap: 1em;
+    font-size: .9em;
+    color: #797878;
+}
+
+.correo i {
+    font-size: 1.2em;
+    color: var(--third-color);
+}
+.step-user,
+.step-envio  {    
+    width: 90vw;
+    margin: 1.5em auto;
+    padding: 1em;
+    padding-left: 1.5em;
+
+    border-radius: .5em;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2);
+}
+
+.user{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    position: relative;
+}
+.user i {
+    color: var(--third-color);
+}
+
+.user-datos {
+    display: flex;
+}
+
+.user-datos div {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    
+    text-align: start;
+    font-size: .9em;
+    color: #797878;
+}
+
+.link-datos {
+    border: none;
+    position: absolute;
+    right: 0;
+
+    font-size: .8em;
+    font-family: var(--third-font);
+    text-decoration: underline;
 }
 /************************** FOOTER ********************************/
 .container {
