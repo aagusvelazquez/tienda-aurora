@@ -67,6 +67,7 @@
             <h1 class="titulo-form-compra">Confirmación de Compra</h1>
 
             <form>
+                <!-- Linea de pasos -->
                 <ul class="compra-timeline">
                     <li>
                         <button class="compra-timeline-item disabled">
@@ -95,6 +96,8 @@
                         </button>
                     </li>
                 </ul>
+                <!-- Captura de datos -->
+                <!-- Datos de contacto, envio y facturación -->
                 <div id="datos-de-compra">
                     <!-- Correo de contacto -->
                     <div class="step">
@@ -114,26 +117,24 @@
                                 <a href="https://www.correoargentino.com.ar/formularios/cpa" target="_blank">Encontrá tu
                                     CP</a>
                             </span>
-                            <input type="button" class="btn-form" value="Continuar" id="btn-continuar"
-                                onclick="validar();" />
+                            <input type="button" id="validar-btn" class="btn-form" value="Continuar" id="btn-continuar" />
                         </div>
                     </div>
-                    <!-- Datos de envio -->
+                    <!-- Datos de Entrega -->
                     <div class="step hidden" id="destino">
                         <h2>Datos de Entrega</h2>
                         <div class="step-content">
+                            <!-- Método de entrega -->
                             <select name="envio" id="envio" class="select-entrega" onchange="entregaElegida();">
                                 <option value="default" selected>Seleccione método de entrega</option>
                                 <option value="envio">Envío a domicilio</option>
                                 <option value="retiro">Retiro - Morón, Bs As.</option>
                                 <option value="encuentro">Encuentro - Est. Morón</option>
                             </select>
-                            <input type="text" id="name-user" name="nombre" class="input-datos-personales" placeholder="Nombre"
-                                required />
-                            <input type="text" id="lastname-user" name="apellido" class="input-datos-personales" placeholder="Apellido"
-                                required />
-                            <input type="text" id="tel-user" name="contacto" class="input-datos-personales" placeholder="Teléfono"
-                                required />
+                            <!-- Datos personales de quien Recibe -->
+                            <input type="text" id="name-user" name="nombre" class="input-datos-personales" placeholder="Nombre" required />
+                            <input type="text" id="lastname-user" name="apellido" class="input-datos-personales" placeholder="Apellido" required />
+                            <input type="text" id="tel-user" name="contacto" class="input-datos-personales" placeholder="Ej. 1125361425" required />
                             <!-- Muestra el CP indicado -->
                             <div class="input-datos-personales hidden" id="input-cp"></div>
                             <!-- Muestra el método de entrega seleccionado -->
@@ -143,16 +144,17 @@
                         </div>
                     </div>
                     <!-- Datos de pago, en caso de que no abone quien reciba -->
-                    <div class="step hidden facturacion" id="facturacion">
+                    <div class="step facturacion hidden" id="facturacion">
                         <h2>Datos de Facturacion</h2>
+                        <!-- DNI o CUIL de quien recibe y abona -->
                         <div class="step-content">
-                            <input type="text" name="dni-cuil" class="input-datos-personales" placeholder="DNI o CUIL"
-                                required />
+                            <input type="text" id="dniCuil" name="dni-cuil" class="input-datos-personales" placeholder="DNI o CUIL" required />
                             <div class="datos-facturacion">
                                 <input type="checkbox" name="checkbox" id="datos-facturacion" checked>
                                 <label for="checkbox">Mis datos de facturación y entrega son<br>los mismos</label>
                             </div>
                         </div>
+                        <!-- Datos de quien abona, en caso de no ser quien reciba -->
                         <div class="step-content hidden datos-abono">
                             <h5>Persona que pagará el pedido</h5>
                             <input type="text" name="nombre-abono" class="input-datos-personales" placeholder="Nombre"
@@ -207,17 +209,18 @@
                                 </select>
                             </div>
                         </div>
-                        <input type="button" class="btn-form" value="Continuar con el Pago" onclick="validarDatos();" />
+                        <input type="button" id="validar-datos" class="btn-form" value="Continuar con el Pago" />
                     </div>
                 </div>
+                <!-- Datos de pago -->
                 <div id="datos-de-pago" class="hidden">
                     <div class="cod-descuento">
                         <i class="fa-solid fa-ticket"></i>
-                        <input type="button" value="Agregar cupón de Descuento" onclick="addDto();">
+                        <input type="button" id="descuento" value="Agregar cupón de Descuento" />
                         <div class="step-content input hidden" id="dto-label">
-                            <input name="descuento" class="dto-label" type="text" placeholder="Ingrese su código"
+                            <input name="descuento" id="input-dto" class="dto-label" type="text" placeholder="Ingrese su código"
                                 required />
-                            <input type="button" value="Validar" class="validar-btn" onclick="validarDto();"/>
+                            <input type="button" id="validar-dto" value="Validar" class="validar-btn" />
                         </div>
                     </div>
                     <div class="step">
@@ -232,7 +235,12 @@
                             <div class="step-content user-datos" id="user-datos"></div>
                         </div>
                     </div>
-                    <div class="step-envio hidden"></div>
+                    <div class="step-envio">
+                        <div class="step-content user">
+                            <i class="fa-solid fa-truck-fast"></i>
+                            <div class="step-content user-datos" id="datos-de-envio"></div>
+                        </div>
+                    </div>
                 </div>
             </form>
         </section>
@@ -249,7 +257,7 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../static/js/compras.js" defer></script>
+    <script src="../static/js/comprar.js" defer></script>
 </body>
 
 </html>

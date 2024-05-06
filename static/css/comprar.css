@@ -617,6 +617,7 @@ form {
     text-decoration: underline;
     font-size: 1em;
     color: var(--third-color);
+    background-color: white;
 }
 
 .dto-label {
@@ -706,6 +707,7 @@ form {
     position: absolute;
     right: 0;
 
+    background-color: white;
     font-size: .8em;
     font-family: var(--third-font);
     text-decoration: underline;

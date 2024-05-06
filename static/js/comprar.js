@@ -54,8 +54,9 @@ function calcularTotales() {
 }
 
 /*******************************************************************************/
-
-function validar() {
+// Valida correo y cógio postal
+const validarBTN = document.getElementById("validar-btn").addEventListener("click", () => {
+    const btn = document.getElementById("validar-btn");
     const email = document.getElementById("email-comprador").value;
     const codigoPostal = document.getElementById("CP").value;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -98,8 +99,10 @@ function validar() {
     }
     // Insertar el correo en el form de Pago
     document.getElementById("correo-compra").innerText = email;
-};
-
+    // Deshabilita el botón para que no vuelva a generar la acción
+    btn.disabled = true;
+})
+// Cambia el cóogio postal en el link "cambiar"
 function cambiarCodigo() {
     let destino = document.getElementById("destino");
     let facturacion = document.getElementById("facturacion");
@@ -107,6 +110,7 @@ function cambiarCodigo() {
     let inputCP = document.getElementById("input-cp");
     let entrega = document.getElementById("envio");
     const datos = document.getElementById("datos-despacho");
+    const btn = document.getElementById("validar-btn");
     destino.classList.toggle("hidden");
     facturacion.classList.toggle("hidden");
     codigoPostal.value = "";
@@ -114,8 +118,9 @@ function cambiarCodigo() {
     entrega.value = "default";
     datos.classList.add("hidden");
     datos.innerHTML = "";
+    // Habilita el botón "Continuar""
+    btn.disabled = false;
 };
-
 // Mostrar campos a completar de envio si la opcion seleccionada fue "envio"
 function entregaElegida() {
     // Obtener el value de la opcion seleccionada
@@ -131,13 +136,18 @@ function entregaElegida() {
         datos.classList.add("hidden");
         datos.innerHTML = "";
     } else if (entrega === "envio") {
-        step.classList.add("hidden");
+        step.classList.remove("hidden");
+        step.innerHTML = `
+        <div class="datos-envio">
+            <p>Método de Entrega:</p><span>${selected}</span>
+        </div>
+        `;
         datos.classList.remove("hidden");
-        datos.innerHTML = `<input type="text" name="calle" class="input-datos-personales" placeholder="Calle" required />
-        <input type="text" name="num-calle" class="input-datos-personales" placeholder="Número" required />
-        <input type="text" name="dpto" class="input-datos-personales" placeholder="Departamento (opcional)" />
-        <input type="text" name="barrio" class="input-datos-personales" placeholder="Barrio (opcional)" />
-        <input type="text" name="ciudad" class="input-datos-personales" placeholder="Ciudad" required />`;
+        datos.innerHTML = `<input type="text" id="calle" name="calle" class="input-datos-personales" placeholder="Calle" required />
+        <input type="text" id="num-calle" name="num-calle" class="input-datos-personales" placeholder="Número" required />
+        <input type="text" id="dpto" name="dpto" class="input-datos-personales" placeholder="Departamento (opcional)" />
+        <input type="text" id="localidad" name="localidad" class="input-datos-personales" placeholder="Barrio-Localidad" />
+        <input type="text" id="prov" name="provincia" class="input-datos-personales" placeholder="Provincia" required />`;
     } else {
         datos.classList.add("hidden");
         step.classList.remove("hidden");
@@ -149,9 +159,8 @@ function entregaElegida() {
         `;
     }
 }
-
-// Mostrar o no form de datos de pago 
-const checkbox = document.querySelector('input[type="checkbox"]').addEventListener('change', function () {
+// Mostrar o no form de datos de pago si el DNI de facturación y entrega no es el mismo
+const checkbox = document.querySelector('input[type="checkbox"]').addEventListener('change', () => {
     let step = document.querySelector(".datos-abono");
     if (!(this.checked)) {
         step.classList.toggle("hidden");
@@ -159,9 +168,73 @@ const checkbox = document.querySelector('input[type="checkbox"]').addEventListen
         step.classList.toggle("hidden");
     }
 });
+// Valida todos los datos de contacto, envio y facturación antes de pasar al pago
+const validarDatosBTN = document.getElementById("validar-datos").addEventListener('click', () => {
+    const nombre = document.getElementById("name-user").value;
+    const apellido = document.getElementById("lastname-user").value;
+    const telefono = document.getElementById("tel-user").value;
+    const dniCuil = document.getElementById("dniCuil").value;
+    const entrega = document.getElementById("envio").value;
 
-function validarDatos() {
+    if ((nombre.length <= 2) || (apellido.length <= 2) || !telefono || !dniCuil) {
+        Swal.fire(
+            'ERROR!',
+            'Por favor, complete los campos.',
+            'error'
+        )
+    } else if ((entrega === "") || (entrega === "default")) {
+        Swal.fire(
+            'ERROR!',
+            'Por favor, seleccione un método de entrega.',
+            'error'
+        )
+    } else {
+        if (telefono.length <= 9) {
+            Swal.fire(
+                'ERROR!',
+                'Por favor, ingrese un teléfono válido.',
+                'error'
+            )
+        }else if (dniCuil.length < 8) {
+            Swal.fire(
+                'ERROR!',
+                'Por favor, ingrese un DNI o CUIL válidos.',
+                'error'
+            )
+        }else if (entrega === "envio") {
+            const calle = document.getElementById("calle").value;
+            const numCalle = document.getElementById("num-calle").value;
+            const localidad = document.getElementById("localidad").value;
+            const prov = document.getElementById("prov").value;
+
+            if ((calle.length <= 2) || (numCalle.length <= 1) || (localidad.length <= 3) || (prov.length <= 3)) {
+                Swal.fire(
+                    'ERROR!',
+                    'Por favor, complete los campos de envío.',
+                    'error'
+                )
+            } else {
+                pagoDatos();
+            }
+        } else {
+            pagoDatos();
+        }
+    }
+})
+
+// Carga pasos de pago
+function pagoDatos() {
+    const nombre = document.getElementById("name-user").value;
+    const apellido = document.getElementById("lastname-user").value;
+    const telefono = document.getElementById("tel-user").value;
     const ltEnvio = document.getElementById("select-envio");
+    const datos = document.getElementById("datos-de-compra");
+    const pago = document.getElementById("datos-de-pago");
+    const datosUser = document.getElementById("user-datos");
+    const datosEnvio = document.getElementById("datos-de-envio");
+    const texto = document.getElementById("envio");
+    const selected = texto.options[texto.selectedIndex].text;
+
     ltEnvio.classList.add("disabled");
     window.scroll({
         top: 0,
@@ -169,17 +242,9 @@ function validarDatos() {
         behavior: "smooth",
     });
 
-    const datos = document.getElementById("datos-de-compra");
-    const pago = document.getElementById("datos-de-pago");
     datos.classList.add("hidden");
     pago.classList.remove("hidden");
 
-    const datosUser = document.getElementById("user-datos");
-    let nombre = document.getElementById("name-user").value;
-    let apellido = document.getElementById("lastname-user").value;
-    let telefono = document.getElementById("tel-user").value;
-    const texto = document.getElementById("envio");
-    const selected = texto.options[texto.selectedIndex].text;
     datosUser.innerHTML = `
         <div>
             <span>${nombre} ${apellido}</span>
@@ -188,36 +253,61 @@ function validarDatos() {
         </div>
         <input type="button" value="Cambiar" class="link-datos" onclick="cambiarDatos();"/>
     `;
-}
 
-function addDto() {
-    let dto = document.getElementById("dto-label");
+    // hay que agregar bloque de codigo que capture los datos de entrega
+    datosEnvio.innerHTML = `
+        <div>
+            
+        </div>
+        <input type="button" value="Cambiar" class="link-datos" onclick="cambiarDatos();"/>
+    `;
+    // hay que generar la parte de formulario para seleccionar el metodo de pago
+}
+//Muestra el input de cupón de descuento
+const descuento = document.getElementById("descuento").addEventListener("click", () => {
+    const dto = document.getElementById("dto-label");
+    const dtoLabel = document.getElementById("input-dto");
     dto.classList.toggle("hidden");
-}
-
-function validarDto() {
+    dtoLabel.value = "";
+});
+// Valida el cupón de descuento
+const validarDto = document.getElementById("validar-dto").addEventListener("click", () => {
     Swal.fire(
         'ERROR!',
         'No existen descuentos compatibles. Revise su código.',
         'error'
     )
-}
-
-function cambiarDatos(){
+});
+// Cambiar datos desde los pasos de Pago
+function cambiarDatos() {
     const ltEnvio = document.getElementById("select-envio");
     const datos = document.getElementById("datos-de-compra");
     const pago = document.getElementById("datos-de-pago");
     const codigoPostal = document.getElementById("CP");
-    let facturacion = document.getElementById("facturacion");
-    let destino = document.getElementById("destino");
+    const nombre = document.getElementById("name-user");
+    const apellido = document.getElementById("lastname-user");
+    const telefono = document.getElementById("tel-user");
+    const dniCuil = document.getElementById("dniCuil");
+    const entrega = document.getElementById("envio");
+    const entregaInput = document.getElementById("envio-seleccionado");
+    const destino = document.getElementById("destino");
+    const facturacion = document.getElementById("facturacion");
+    const btn = document.getElementById("validar-btn");
 
     ltEnvio.classList.remove("disabled");
     datos.classList.remove("hidden");
     pago.classList.add("hidden");
     codigoPostal.value = "";
-    facturacion.classList.add("hidden");
+    nombre.value= "";
+    apellido.value = "";
+    telefono.value = "";
+    entrega.value = "default";
+    entregaInput.classList.toggle("hidden");
+    dniCuil.value = "";
     destino.classList.toggle("hidden");
-    
+    facturacion.classList.toggle("hidden");
+    btn.disabled = false;
+
     window.scroll({
         top: 0,
         left: 0,
