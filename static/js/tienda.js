@@ -246,7 +246,6 @@ navCloseBtn.addEventListener("click", () => {
 document.getElementById("abrirCarrito").addEventListener("click", function () {
     document.getElementById("cart").style.width = "100vw";
 });
-
 document.getElementById("cerrarCarrito").addEventListener("click", function () {
     document.getElementById("cart").style.width = "0";
 });
@@ -270,11 +269,9 @@ window.onscroll = () => {
 document.getElementById("abrirFiltros").addEventListener("click", function () {
     document.getElementById("filters").style.width = "90vw";
 });
-
 document.getElementById("cerrarFiltros").addEventListener("click", function () {
     document.getElementById("filters").style.width = "0";
 });
-
 function saphirusDropdown() {
     var dropdownContent = document.querySelector('.dropdown-content-saphirus');
     var dropdownBtn = document.querySelector('.dropdown-btn-saphirus');
@@ -286,8 +283,7 @@ function saphirusDropdown() {
         dropdownContent.style.display = 'block';
         dropdownBtn.classList.add('active');
     }
-}
-
+};
 function amberDropdown() {
     var dropdownContent = document.querySelector('.dropdown-content-ambar');
     var dropdownBtn = document.querySelector('.dropdown-btn-ambar');
@@ -299,8 +295,7 @@ function amberDropdown() {
         dropdownContent.style.display = 'block';
         dropdownBtn.classList.add('active');
     }
-}
-
+};
 function milanoDropdown() {
     var dropdownContent = document.querySelector('.dropdown-content-milano');
     var dropdownBtn = document.querySelector('.dropdown-btn-milano');
@@ -312,7 +307,8 @@ function milanoDropdown() {
         dropdownContent.style.display = 'block';
         dropdownBtn.classList.add('active');
     }
-}
+};
+
 // Paginación
 document.addEventListener('DOMContentLoaded', function () {
     const products = [
@@ -549,11 +545,10 @@ document.addEventListener('DOMContentLoaded', function () {
           </div>
             `;
         })
-    }
+    };
 
     function setupPagination(totalProducts, productsPerPage) {
         const pageCount = Math.ceil(totalProducts / productsPerPage);
-
         const prevButton = document.getElementById('prev-page');
         const nextButton = document.getElementById('next-page');
         const paginationNumbers = document.getElementById('pagination-numbers');
@@ -596,14 +591,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                     paginationNumbers.appendChild(pageLink);
                 }
-            }
-
+            };
             displayProducts(currentPage);
-        }
-
+        };
         updatePagination();
-    }
-
+    };
     setupPagination(products.length, productsPerPage);
 });
 
@@ -624,11 +616,11 @@ function agregarAlCarrito(productoId) {
             text: "Modifique la cantidad desde allí.",
             icon: "warning"
         });
-    }
+    };
 
     actualizarCarrito();
     guardarEnLocal();
-}
+};
 
 function cambiarCantidad(action, productoId) {
     const productosDelCarrito = carritoItems.find(p => p.id === productoId);
@@ -637,18 +629,17 @@ function cambiarCantidad(action, productoId) {
             productosDelCarrito.cant += 1;
         } else {
             agregarAlCarrito(productoId);
-        }
+        };
     } else if (action === 'restar' && productosDelCarrito && productosDelCarrito.cant > 1) {
         productosDelCarrito.cant -= 1;
-    }
-
+    };
     actualizarCarrito();
     guardarEnLocal();
-}
+};
 
 btnVaciarCarrito.addEventListener("click", () => {
     cartContainer.innerHTML = '';
-    carritoItems = []
+    carritoItems = [];
 
     if (carritoItems.length === 0) {
         let total = document.querySelector('.carrito-total');
@@ -661,9 +652,7 @@ btnVaciarCarrito.addEventListener("click", () => {
             icon: "success"
         });
 
-    }
-
-
+    };
     calcularTotales();
     guardarEnLocal();
 });
@@ -696,16 +685,15 @@ function actualizarCarrito() {
 
         total.classList.remove('hidden');
         carritoVacio.classList.add('hidden');
-    }
-
+    };
     calcularTotales();
-}
+};
 
 function removeFromCart(productId) {
     carritoItems = carritoItems.filter(item => item.id !== productId);
     actualizarCarrito();
     guardarEnLocal();
-}
+};
 
 function calcularTotales() {
     let totalPagar = 0;
@@ -723,11 +711,10 @@ function calcularTotales() {
 
         total.classList.add('hidden');
         carritoVacio.classList.remove('hidden');
-    }
-}
+    };
+};
 
 // Guardamos el carrito en el localStorage
 const guardarEnLocal = () => {
     localStorage.setItem('carrito', JSON.stringify(carritoItems));
 };
-

@@ -117,7 +117,8 @@
                                 <a href="https://www.correoargentino.com.ar/formularios/cpa" target="_blank">Encontrá tu
                                     CP</a>
                             </span>
-                            <input type="button" id="validar-btn" class="btn-form" value="Continuar" id="btn-continuar" />
+                            <input type="button" id="validar-btn" class="btn-form" value="Continuar"
+                                id="btn-continuar" />
                         </div>
                     </div>
                     <!-- Datos de Entrega -->
@@ -132,9 +133,12 @@
                                 <option value="encuentro">Encuentro - Est. Morón</option>
                             </select>
                             <!-- Datos personales de quien Recibe -->
-                            <input type="text" id="name-user" name="nombre" class="input-datos-personales" placeholder="Nombre" required />
-                            <input type="text" id="lastname-user" name="apellido" class="input-datos-personales" placeholder="Apellido" required />
-                            <input type="text" id="tel-user" name="contacto" class="input-datos-personales" placeholder="Ej. 1125361425" required />
+                            <input type="text" id="name-user" name="nombre" class="input-datos-personales"
+                                placeholder="Nombre" required />
+                            <input type="text" id="lastname-user" name="apellido" class="input-datos-personales"
+                                placeholder="Apellido" required />
+                            <input type="text" id="tel-user" name="contacto" class="input-datos-personales"
+                                placeholder="Ej. 1125361425" required />
                             <!-- Muestra el CP indicado -->
                             <div class="input-datos-personales hidden" id="input-cp"></div>
                             <!-- Muestra el método de entrega seleccionado -->
@@ -148,7 +152,8 @@
                         <h2>Datos de Facturacion</h2>
                         <!-- DNI o CUIL de quien recibe y abona -->
                         <div class="step-content">
-                            <input type="text" id="dniCuil" name="dni-cuil" class="input-datos-personales" placeholder="DNI o CUIL" required />
+                            <input type="text" id="dniCuil" name="dni-cuil" class="input-datos-personales"
+                                placeholder="DNI o CUIL" required />
                             <div class="datos-facturacion">
                                 <input type="checkbox" name="checkbox" id="datos-facturacion" checked>
                                 <label for="checkbox">Mis datos de facturación y entrega son<br>los mismos</label>
@@ -218,8 +223,8 @@
                         <i class="fa-solid fa-ticket"></i>
                         <input type="button" id="descuento" value="Agregar cupón de Descuento" />
                         <div class="step-content input hidden" id="dto-label">
-                            <input name="descuento" id="input-dto" class="dto-label" type="text" placeholder="Ingrese su código"
-                                required />
+                            <input name="descuento" id="input-dto" class="dto-label" type="text"
+                                placeholder="Ingrese su código" required />
                             <input type="button" id="validar-dto" value="Validar" class="validar-btn" />
                         </div>
                     </div>
@@ -239,6 +244,34 @@
                         <div class="step-content user">
                             <i class="fa-solid fa-truck-fast"></i>
                             <div class="step-content user-datos" id="datos-de-envio"></div>
+                        </div>
+                    </div>
+                    <div class="step-envio">
+                        <div class="step-content notas">
+                            <i class="fa-solid fa-comments"></i>
+                            <div class="step-content nota" id="notas"></div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-content" id="step-pago">
+                            <h4>Medios de Pago</h4>
+                            <ul>
+                                <li>
+                                    <i class="fa-regular fa-money-bill-1"></i>
+                                     Efectivo
+                                     <i class="fa-solid fa-angle-right icon-pago"></i>
+                                    </li>
+                                <li>
+                                    <i class="fa-solid fa-credit-card"></i>
+                                     Tranferencia Bancaria 
+                                    <i class="fa-solid fa-angle-right icon-pago"></i>
+                                </li>
+                                <li>
+                                    <img src="../static/img/mp.png" alt="Logo Mercado Pago">
+                                    MercadoPago 
+                                    <i class="fa-solid fa-angle-right icon-pago"></i>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

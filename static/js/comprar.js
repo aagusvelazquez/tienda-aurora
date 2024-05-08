@@ -58,14 +58,15 @@ function calcularTotales() {
 const validarBTN = document.getElementById("validar-btn").addEventListener("click", () => {
     const btn = document.getElementById("validar-btn");
     const email = document.getElementById("email-comprador").value;
-    const codigoPostal = document.getElementById("CP").value;
+    const codPostal = document.getElementById("CP");
+    const cp = document.getElementById("CP").value;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const emailValido = emailRegex.test(email);
     let destino = document.getElementById("destino");
     let facturacion = document.getElementById("facturacion");
     let inputCP = document.getElementById("input-cp");
 
-    if (email == 0 && codigoPostal == 0) {
+    if (email == 0 && cp == 0) {
         Swal.fire(
             'ERROR!',
             'Por favor, complete los campos.',
@@ -77,7 +78,7 @@ const validarBTN = document.getElementById("validar-btn").addEventListener("clic
             'Por favor, introduce un correo electrónico válido.',
             'error'
         )
-    } else if (!(codigoPostal.length == 4)) {
+    } else if (!(cp.length == 4)) {
         Swal.fire(
             'ERROR!',
             'Por favor, introduce un código postal válido.',
@@ -91,7 +92,7 @@ const validarBTN = document.getElementById("validar-btn").addEventListener("clic
         <div class="datos-postal">
             <i class="fa-solid fa-location-dot"></i>
             <div>
-                <p>Código Postal ${codigoPostal}</p>
+                <p>Código Postal ${cp}</p>
             </div>
         </div>
         <input type="button" class="btn-cp" value="Cambiar" onclick="cambiarCodigo();" />
@@ -101,6 +102,7 @@ const validarBTN = document.getElementById("validar-btn").addEventListener("clic
     document.getElementById("correo-compra").innerText = email;
     // Deshabilita el botón para que no vuelva a generar la acción
     btn.disabled = true;
+    codPostal.disabled = true;
 })
 // Cambia el cóogio postal en el link "cambiar"
 function cambiarCodigo() {
@@ -111,6 +113,7 @@ function cambiarCodigo() {
     let entrega = document.getElementById("envio");
     const datos = document.getElementById("datos-despacho");
     const btn = document.getElementById("validar-btn");
+    const codPostal = document.getElementById("CP");
     destino.classList.toggle("hidden");
     facturacion.classList.toggle("hidden");
     codigoPostal.value = "";
@@ -120,6 +123,7 @@ function cambiarCodigo() {
     datos.innerHTML = "";
     // Habilita el botón "Continuar""
     btn.disabled = false;
+    codPostal.disabled = false;
 };
 // Mostrar campos a completar de envio si la opcion seleccionada fue "envio"
 function entregaElegida() {
@@ -195,13 +199,13 @@ const validarDatosBTN = document.getElementById("validar-datos").addEventListene
                 'Por favor, ingrese un teléfono válido.',
                 'error'
             )
-        }else if (dniCuil.length < 8) {
+        } else if (dniCuil.length < 8) {
             Swal.fire(
                 'ERROR!',
                 'Por favor, ingrese un DNI o CUIL válidos.',
                 'error'
             )
-        }else if (entrega === "envio") {
+        } else if (entrega === "envio") {
             const calle = document.getElementById("calle").value;
             const numCalle = document.getElementById("num-calle").value;
             const localidad = document.getElementById("localidad").value;
@@ -224,46 +228,35 @@ const validarDatosBTN = document.getElementById("validar-datos").addEventListene
 
 // Carga pasos de pago
 function pagoDatos() {
-    const nombre = document.getElementById("name-user").value;
-    const apellido = document.getElementById("lastname-user").value;
-    const telefono = document.getElementById("tel-user").value;
+    
     const ltEnvio = document.getElementById("select-envio");
     const datos = document.getElementById("datos-de-compra");
     const pago = document.getElementById("datos-de-pago");
-    const datosUser = document.getElementById("user-datos");
-    const datosEnvio = document.getElementById("datos-de-envio");
-    const texto = document.getElementById("envio");
-    const selected = texto.options[texto.selectedIndex].text;
-
+    
     ltEnvio.classList.add("disabled");
+    datos.classList.add("hidden");
+    pago.classList.remove("hidden");
+
     window.scroll({
         top: 0,
         left: 0,
         behavior: "smooth",
     });
 
-    datos.classList.add("hidden");
-    pago.classList.remove("hidden");
+    // Agrega los datos del comprador
+    datosUser();
 
-    datosUser.innerHTML = `
-        <div>
-            <span>${nombre} ${apellido}</span>
-            <span>${selected}</span>
-            <span>+549${telefono}</span>
-        </div>
-        <input type="button" value="Cambiar" class="link-datos" onclick="cambiarDatos();"/>
-    `;
+    // Agrega bloque de codigo que captura los datos de entrega
+    datosEntrega();
 
-    // hay que agregar bloque de codigo que capture los datos de entrega
-    datosEnvio.innerHTML = `
-        <div>
-            
-        </div>
-        <input type="button" value="Cambiar" class="link-datos" onclick="cambiarDatos();"/>
-    `;
-    // hay que generar la parte de formulario para seleccionar el metodo de pago
+    // Agrega bloque de codigo para sumar comentarios al pedido
+    bloqueNota();
+
+    // Generar la parte de formulario para seleccionar el metodo de pago
+
 }
-//Muestra el input de cupón de descuento
+
+// Muestra el input de cupón de descuento
 const descuento = document.getElementById("descuento").addEventListener("click", () => {
     const dto = document.getElementById("dto-label");
     const dtoLabel = document.getElementById("input-dto");
@@ -293,12 +286,13 @@ function cambiarDatos() {
     const destino = document.getElementById("destino");
     const facturacion = document.getElementById("facturacion");
     const btn = document.getElementById("validar-btn");
+    const codPostal = document.getElementById("CP");
 
     ltEnvio.classList.remove("disabled");
     datos.classList.remove("hidden");
     pago.classList.add("hidden");
     codigoPostal.value = "";
-    nombre.value= "";
+    nombre.value = "";
     apellido.value = "";
     telefono.value = "";
     entrega.value = "default";
@@ -307,6 +301,7 @@ function cambiarDatos() {
     destino.classList.toggle("hidden");
     facturacion.classList.toggle("hidden");
     btn.disabled = false;
+    codPostal.disabled = false;
 
     window.scroll({
         top: 0,
@@ -314,3 +309,95 @@ function cambiarDatos() {
         behavior: "smooth",
     });
 };
+// Agrega los datos del comprador
+function datosUser() {
+    const datosUser = document.getElementById("user-datos");
+    const nombre = document.getElementById("name-user").value;
+    const apellido = document.getElementById("lastname-user").value;
+    const telefono = document.getElementById("tel-user").value;
+    const dniCuil = document.getElementById("dniCuil").value;
+
+    datosUser.innerHTML = `
+        <div>
+            <span>${nombre} ${apellido}</span>
+            <span>${dniCuil}</span>
+            <span>+549${telefono}</span>
+        </div>
+        <input type="button" value="Cambiar" class="link-datos" onclick="cambiarDatos();"/>
+    `;
+}
+// Agrega datos de entrega
+function datosEntrega() {
+    const datosEnvio = document.getElementById("datos-de-envio");
+    const texto = document.getElementById("envio");
+    const selected = texto.options[texto.selectedIndex].text;
+    let entrega = document.getElementById("envio").value;
+
+    if (entrega === "retiro") {
+        datosEnvio.innerHTML = `
+        <div>
+            <span>${selected}</span>
+            <p>A convenir. Antes deberá coordinar vía Whatsapp.</p>
+        </div>
+        <input type="button" value="Cambiar" class="link-datos" onclick="cambiarDatos();" />
+        `;
+    } else if (entrega === "encuentro") {
+        datosEnvio.innerHTML = `
+        <div>
+            <span>${selected}</span>
+            <p>A convenir. Encuentro Gratuito - Antes deberá coordinar vía Whatsapp.</p>
+        </div>
+        <input type="button" value="Cambiar" class="link-datos" onclick="cambiarDatos();" />
+        `;
+    } else if (entrega === "envio") {
+        entrega = "Deberá coordinar por Whatsapp el método de envío que se prefiera, se abona el mismo una vez confirmado."
+        const calle = document.getElementById("calle").value;
+        const num = document.getElementById("num-calle").value;
+        const dpto = document.getElementById("dpto").value;
+        const localidad = document.getElementById("localidad").value;
+        const prov = document.getElementById("prov").value;
+
+        if (dpto == "") {
+            datosEnvio.innerHTML = `
+            <div>
+                <span>${selected}</span>
+                <p>${calle} ${num}.</p>
+                <p>${localidad}, ${prov}.</p>
+                <p>A convenir. ${entrega}</p>
+            </div>
+            <input type="button" value="Cambiar" class="link-datos" onclick="cambiarDatos();" />
+            `;
+        } else {
+            datosEnvio.innerHTML = `
+            <div>
+                <span>${selected}</span>
+                <p>${calle} - ${dpto}, ${num}.</p>
+                <p>${localidad}, ${prov}.</p>
+                <p>A convenir. ${entrega}</p>
+            </div>
+            <input type="button" value="Cambiar" class="link-datos" onclick="cambiarDatos();" />
+            `;
+        }
+    }
+}
+// Agrega bloque de codigo de nota de pedido
+function bloqueNota() {
+    const notas = document.getElementById("notas");
+    const notaBtn = document.getElementById("btn-nota");
+
+    notas.innerHTML = `
+        <div>
+            <span>Notas de pedido</span>
+            <div id="nota"></div>
+        </div>
+        <div id="btn-nota" class="link-datos">Agregar</div>
+    `;
+
+    // Funcion que agrega la nota
+    notaBtn.addEventListener("click", () => {
+        const nota = document.getElementById("nota");
+        nota.innerHTML = `
+            <textarea id="nota-pedido" name="nota-pedido">
+        `;
+    });
+}

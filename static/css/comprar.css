@@ -658,7 +658,7 @@ form {
 .correo{
     display: flex;
     gap: 1em;
-    font-size: .9em;
+    font-size: .85em;
     color: #797878;
 }
 
@@ -677,22 +677,26 @@ form {
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2);
 }
 
-.user{
+.user,
+.notas{
     display: flex;
     align-items: center;
     gap: 1em;
 
     position: relative;
 }
-.user i {
+.user i,
+.notas i {
     color: var(--third-color);
 }
 
-.user-datos {
+.user-datos,
+.nota {
     display: flex;
 }
 
-.user-datos div {
+.user-datos div,
+.nota div {
     display: flex;
     flex-direction: column;
     gap: .5em;
@@ -700,6 +704,17 @@ form {
     text-align: start;
     font-size: .9em;
     color: #797878;
+}
+
+.step-envio .user-datos div span,
+.step-envio .notas .nota div span {
+    font-weight: bold;
+    color: var(--bg-dark);
+}
+
+.step-envio .user-datos div p:last-child {
+    font-weight: bold;
+    line-height: 18px;
 }
 
 .link-datos {
@@ -711,6 +726,42 @@ form {
     font-size: .8em;
     font-family: var(--third-font);
     text-decoration: underline;
+}
+
+#nota-pedido {
+    width: 70vw;
+    height: 4em;
+    padding: 5px 2px;
+    border: 1px solid var(--third-color);
+    border-radius: 5px;
+    outline: none;
+    resize: vertical;
+}
+
+#step-pago li {
+    margin-bottom: .3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#step-pago ul li i:first-child {
+    font-size: 1.5em;
+    margin: 0 .1em;
+    text-align: center;
+}
+#step-pago ul img {
+    width: 2em;
+    margin-right: .4em;
+}
+
+#step-pago ul li i:last-child {
+    text-align: end;
+}
+.icon-pago {
+    font-size: 1em;
+    color: #888;
 }
 /************************** FOOTER ********************************/
 .container {
