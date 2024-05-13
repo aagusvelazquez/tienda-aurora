@@ -83,7 +83,7 @@ a {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 /********************************** NAVBAR *************************/
 nav {
@@ -491,7 +491,7 @@ form {
 }
 
 #input-cp {
-    height: 15vw;
+    height: 18vw;
     display: flex;
     justify-content: space-between;
     align-items: self-start;
@@ -509,7 +509,8 @@ form {
 
 .datos-envio {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
+    align-items: flex-start;
     gap: .5em;
     padding: .2em 0;
 
@@ -523,6 +524,9 @@ form {
     font-weight: bold;
 }
 
+#envio-seleccionado {
+    height: 18vw;
+}
 .datos-postal {
     display: flex;
     gap: 1em;
@@ -740,23 +744,25 @@ form {
 
 #step-pago li {
     margin-bottom: .3em;
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-#step-pago ul li i:first-child {
+#step-pago li i:first-child {
     font-size: 1.5em;
     margin: 0 .1em;
     text-align: center;
 }
+
 #step-pago ul img {
     width: 2em;
-    margin-right: .4em;
+    margin-right: .1em;
 }
 
-#step-pago ul li i:last-child {
+#step-pago li i:last-child {
     text-align: end;
 }
 .icon-pago {

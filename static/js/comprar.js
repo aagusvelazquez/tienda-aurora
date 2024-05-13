@@ -56,34 +56,34 @@ function calcularTotales() {
 /*******************************************************************************/
 // Valida correo y cógio postal
 const validarBTN = document.getElementById("validar-btn").addEventListener("click", () => {
-    const btn = document.getElementById("validar-btn");
     const email = document.getElementById("email-comprador").value;
-    const codPostal = document.getElementById("CP");
     const cp = document.getElementById("CP").value;
+    const cpInput = document.getElementById("CP");
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const emailValido = emailRegex.test(email);
     let destino = document.getElementById("destino");
     let facturacion = document.getElementById("facturacion");
     let inputCP = document.getElementById("input-cp");
+    const btn = document.getElementById("validar-btn");
 
     if (email == 0 && cp == 0) {
         Swal.fire(
             'ERROR!',
             'Por favor, complete los campos.',
             'error'
-        )
+        );
     } else if (!emailValido) {
         Swal.fire(
             'ERROR!',
             'Por favor, introduce un correo electrónico válido.',
             'error'
-        )
+        );
     } else if (!(cp.length == 4)) {
         Swal.fire(
             'ERROR!',
             'Por favor, introduce un código postal válido.',
             'error'
-        )
+        );
     } else {
         destino.classList.toggle("hidden");
         facturacion.classList.toggle("hidden");
@@ -97,33 +97,48 @@ const validarBTN = document.getElementById("validar-btn").addEventListener("clic
         </div>
         <input type="button" class="btn-cp" value="Cambiar" onclick="cambiarCodigo();" />
         `;
+        //Inhabilita el input de CP
+        btn.disabled = true;
+        cpInput.disabled = true;
     }
     // Insertar el correo en el form de Pago
     document.getElementById("correo-compra").innerText = email;
-    // Deshabilita el botón para que no vuelva a generar la acción
-    btn.disabled = true;
-    codPostal.disabled = true;
+
 })
 // Cambia el cóogio postal en el link "cambiar"
 function cambiarCodigo() {
+    //Captura los dos step de datos
     let destino = document.getElementById("destino");
     let facturacion = document.getElementById("facturacion");
+    // Captura el input donde ingresa el CP el cliente
     let codigoPostal = document.getElementById("CP");
+    // Captura el step donde se mostrará el CP ingresado
     let inputCP = document.getElementById("input-cp");
+    // Captura el select de metodo de entrega
     let entrega = document.getElementById("envio");
+    // Captura el step que contiene los datos de envio, en caso de seleccionarlo
     const datos = document.getElementById("datos-despacho");
+    // Captura el step que muestra el método de entrega seleccionado
+    const lblEntrega = document.getElementById("envio-seleccionado");
+    // Capptura el boton para validar correo y CP
     const btn = document.getElementById("validar-btn");
-    const codPostal = document.getElementById("CP");
+
+    // Cambia la visibilidad de los step de datos
     destino.classList.toggle("hidden");
     facturacion.classList.toggle("hidden");
+    // Vacía el input que tomara el CP del cliente, y el step que lo muestra
     codigoPostal.value = "";
     inputCP.innerHTML = "";
+    // Devuelve al valor inicial el select de metodo de entrega
     entrega.value = "default";
+    // Oculta el step que muestra el método de entrega seleccionado
+    lblEntrega.classList.toggle("hidden");
+    // Oculta y vacía los datos del step de datos de envio si fue mostrado
     datos.classList.add("hidden");
     datos.innerHTML = "";
-    // Habilita el botón "Continuar""
+    // Habilita el botón "Continuar" y el input de CP
     btn.disabled = false;
-    codPostal.disabled = false;
+    codigoPostal.disabled = false;
 };
 // Mostrar campos a completar de envio si la opcion seleccionada fue "envio"
 function entregaElegida() {
@@ -228,11 +243,11 @@ const validarDatosBTN = document.getElementById("validar-datos").addEventListene
 
 // Carga pasos de pago
 function pagoDatos() {
-    
+
     const ltEnvio = document.getElementById("select-envio");
     const datos = document.getElementById("datos-de-compra");
     const pago = document.getElementById("datos-de-pago");
-    
+
     ltEnvio.classList.add("disabled");
     datos.classList.add("hidden");
     pago.classList.remove("hidden");
@@ -245,16 +260,9 @@ function pagoDatos() {
 
     // Agrega los datos del comprador
     datosUser();
-
     // Agrega bloque de codigo que captura los datos de entrega
     datosEntrega();
-
-    // Agrega bloque de codigo para sumar comentarios al pedido
-    bloqueNota();
-
-    // Generar la parte de formulario para seleccionar el metodo de pago
-
-}
+};
 
 // Muestra el input de cupón de descuento
 const descuento = document.getElementById("descuento").addEventListener("click", () => {
@@ -263,6 +271,7 @@ const descuento = document.getElementById("descuento").addEventListener("click",
     dto.classList.toggle("hidden");
     dtoLabel.value = "";
 });
+
 // Valida el cupón de descuento
 const validarDto = document.getElementById("validar-dto").addEventListener("click", () => {
     Swal.fire(
@@ -271,6 +280,7 @@ const validarDto = document.getElementById("validar-dto").addEventListener("clic
         'error'
     )
 });
+
 // Cambiar datos desde los pasos de Pago
 function cambiarDatos() {
     const ltEnvio = document.getElementById("select-envio");
@@ -300,6 +310,7 @@ function cambiarDatos() {
     dniCuil.value = "";
     destino.classList.toggle("hidden");
     facturacion.classList.toggle("hidden");
+    // Habilita el botón "Continuar" y el input de CP
     btn.disabled = false;
     codPostal.disabled = false;
 
@@ -309,6 +320,7 @@ function cambiarDatos() {
         behavior: "smooth",
     });
 };
+
 // Agrega los datos del comprador
 function datosUser() {
     const datosUser = document.getElementById("user-datos");
@@ -325,7 +337,8 @@ function datosUser() {
         </div>
         <input type="button" value="Cambiar" class="link-datos" onclick="cambiarDatos();"/>
     `;
-}
+};
+
 // Agrega datos de entrega
 function datosEntrega() {
     const datosEnvio = document.getElementById("datos-de-envio");
@@ -379,25 +392,85 @@ function datosEntrega() {
             `;
         }
     }
-}
-// Agrega bloque de codigo de nota de pedido
-function bloqueNota() {
-    const notas = document.getElementById("notas");
-    const notaBtn = document.getElementById("btn-nota");
+};
 
-    notas.innerHTML = `
-        <div>
-            <span>Notas de pedido</span>
-            <div id="nota"></div>
-        </div>
-        <div id="btn-nota" class="link-datos">Agregar</div>
-    `;
+// Muestra el textarea de Notas de pedido
+const btnNotasAdd = document.getElementById("btn-nota-add").addEventListener("click", () => {
+    // Captura el elemento que contiene el textarea
+    const nota = document.getElementById("nota");
+    // Lo hago visible
+    nota.classList.remove("hidden");
 
-    // Funcion que agrega la nota
-    notaBtn.addEventListener("click", () => {
-        const nota = document.getElementById("nota");
-        nota.innerHTML = `
-            <textarea id="nota-pedido" name="nota-pedido">
-        `;
-    });
-}
+    // Capturo el boton de 'Agregar' para ocultarlo
+    const btnAdd = document.getElementById("btn-nota-add");
+    btnAdd.classList.add("hidden");
+
+    // Capturo el boton de 'Quitar' para mostrarlo
+    const btnRemove = document.getElementById("btn-nota-remove");
+    btnRemove.classList.remove("hidden");
+});
+// Quita la nota de pedido
+const btnNotasRemove = document.getElementById("btn-nota-remove").addEventListener("click", () => {
+    // Captura el elemento que contiene el textarea
+    const nota = document.getElementById("nota");
+    // Vacío el textarea
+    document.getElementById("nota-pedido").value = "";
+    // Lo oculto
+    nota.classList.add("hidden");
+
+    // Capturo el boton de 'Agregar' para mostrarlo
+    const btnAdd = document.getElementById("btn-nota-add");
+    btnAdd.classList.remove("hidden");
+
+    // Capturo el boton de 'Quitar' para ocultarlo
+    const btnRemove = document.getElementById("btn-nota-remove");
+    btnRemove.classList.add("hidden");
+});
+
+// Muestra el div de Efectivo
+const efectivo = document.getElementById("btn-efectivo").addEventListener("click", () => {
+    const div = document.getElementById("label-efectivo");
+    const metodos = document.getElementById("metodos");
+
+    div.classList.remove("hidden");
+    metodos.classList.add("hidden");
+});
+const backEfectivo = document.getElementById("lbl-efectivo-back").addEventListener("click", () => {
+    const div = document.getElementById("label-efectivo");
+    const metodos = document.getElementById("metodos");
+
+    div.classList.add("hidden");
+    metodos.classList.remove("hidden");
+});
+
+// Muestra el div de Tranferencia
+const tranferencia = document.getElementById("btn-transferencia").addEventListener("click", () => {
+    const div = document.getElementById("label-transferencia");
+    const metodos = document.getElementById("metodos");
+
+    div.classList.remove("hidden");
+    metodos.classList.add("hidden");
+});
+const backTranferencia = document.getElementById("lbl-transferencia-back").addEventListener("click", () => {
+    const div = document.getElementById("label-transferencia");
+    const metodos = document.getElementById("metodos");
+
+    div.classList.add("hidden");
+    metodos.classList.remove("hidden");
+});
+
+// Muestra el div de MercadoPágo
+const mp = document.getElementById("btn-mp").addEventListener("click", () => {
+    const div = document.getElementById("label-mp");
+    const metodos = document.getElementById("metodos");
+
+    div.classList.remove("hidden");
+    metodos.classList.add("hidden");
+});
+const backMp = document.getElementById("lbl-mp-back").addEventListener("click", () => {
+    const div = document.getElementById("label-mp");
+    const metodos = document.getElementById("metodos");
+
+    div.classList.add("hidden");
+    metodos.classList.remove("hidden");
+});
