@@ -281,41 +281,79 @@ const validarDto = document.getElementById("validar-dto").addEventListener("clic
     )
 });
 
-// Cambiar datos desde los pasos de Pago
-function cambiarDatos() {
+// Cambiar datos del comprador desde los pasos de Pago
+function cambiarDatosUser() {
     const ltEnvio = document.getElementById("select-envio");
     const datos = document.getElementById("datos-de-compra");
     const pago = document.getElementById("datos-de-pago");
-    const codigoPostal = document.getElementById("CP");
     const nombre = document.getElementById("name-user");
     const apellido = document.getElementById("lastname-user");
     const telefono = document.getElementById("tel-user");
     const dniCuil = document.getElementById("dniCuil");
-    const entrega = document.getElementById("envio");
-    const entregaInput = document.getElementById("envio-seleccionado");
     const destino = document.getElementById("destino");
     const facturacion = document.getElementById("facturacion");
-    const btn = document.getElementById("validar-btn");
-    const codPostal = document.getElementById("CP");
 
+    // Marca que se volvió al step'Entrega'
     ltEnvio.classList.remove("disabled");
+    // Muestra el step de datos de comprador y envio, y oculta step de pago
     datos.classList.remove("hidden");
     pago.classList.add("hidden");
-    codigoPostal.value = "";
+    // Borra los datos del cliente
     nombre.value = "";
     apellido.value = "";
     telefono.value = "";
-    entrega.value = "default";
-    entregaInput.classList.toggle("hidden");
     dniCuil.value = "";
-    destino.classList.toggle("hidden");
-    facturacion.classList.toggle("hidden");
-    // Habilita el botón "Continuar" y el input de CP
-    btn.disabled = false;
-    codPostal.disabled = false;
+    // Muestra el step que tiene los inputs de datos y select de metodo de entrega
+    destino.classList.remove("hidden");
+    // Muestra el step donde el cliente carga el DNI
+    facturacion.classList.remove("hidden");
 
     window.scroll({
-        top: 0,
+        top: 520,
+        left: 0,
+        behavior: "smooth",
+    });
+};
+// Cambiar datos de la entrega desde los pasos de Pago
+function cambiarDatosEntrega() {
+    const ltEnvio = document.getElementById("select-envio");
+    const datos = document.getElementById("datos-de-compra");
+    const pago = document.getElementById("datos-de-pago");
+    let entrega = document.getElementById("envio");
+    let calle = document.getElementById("calle").value;
+    let num = document.getElementById("num-calle").value;
+    let dpto = document.getElementById("dpto").value;
+    let localidad = document.getElementById("localidad").value;
+    let prov = document.getElementById("prov").value;
+    const lblDespacho = document.getElementById("envio-seleccionado");
+    const datosDeEnvio = document.getElementById("datos-despacho");
+    const destino = document.getElementById("destino");
+    const facturacion = document.getElementById("facturacion");
+
+    // Marca que se volvió al step'Entrega'
+    ltEnvio.classList.remove("disabled");
+    // Muestra el step de datos de comprador y envio, y oculta step de pago
+    datos.classList.remove("hidden");
+    pago.classList.add("hidden");
+    // Borra los datos de la entrega seleccionada
+    entrega.value = "default";
+    // Borra los datos en los inputs de envio
+    calle = "";
+    num = "";
+    dpto = "";
+    localidad = "";
+    prov = "";
+    // Oculta el step que muestra la opcion seleccionada
+    lblDespacho.classList.add("hidden");
+    // Oculta el step que muestra los inputs para completar en caso de que la opcion sea 'envio'
+    datosDeEnvio.classList.add("hidden");
+    // Muestra el step que tiene el select de metodo de entrega
+    destino.classList.remove("hidden");
+    // Muestra el step donde el cliente carga el DNI
+    facturacion.classList.remove("hidden");
+
+    window.scroll({
+        top: 520,
         left: 0,
         behavior: "smooth",
     });
@@ -335,7 +373,7 @@ function datosUser() {
             <span>${dniCuil}</span>
             <span>+549${telefono}</span>
         </div>
-        <input type="button" value="Cambiar" class="link-datos" onclick="cambiarDatos();"/>
+        <input type="button" value="Cambiar" class="link-datos" onclick="cambiarDatosUser();"/>
     `;
 };
 
@@ -352,7 +390,7 @@ function datosEntrega() {
             <span>${selected}</span>
             <p>A convenir. Antes deberá coordinar vía Whatsapp.</p>
         </div>
-        <input type="button" value="Cambiar" class="link-datos" onclick="cambiarDatos();" />
+        <input type="button" value="Cambiar" class="link-datos" onclick="cambiarDatosEntrega();" />
         `;
     } else if (entrega === "encuentro") {
         datosEnvio.innerHTML = `
@@ -360,7 +398,7 @@ function datosEntrega() {
             <span>${selected}</span>
             <p>A convenir. Encuentro Gratuito - Antes deberá coordinar vía Whatsapp.</p>
         </div>
-        <input type="button" value="Cambiar" class="link-datos" onclick="cambiarDatos();" />
+        <input type="button" value="Cambiar" class="link-datos" onclick="cambiarDatosEntrega();" />
         `;
     } else if (entrega === "envio") {
         entrega = "Deberá coordinar por Whatsapp el método de envío que se prefiera, se abona el mismo una vez confirmado."
@@ -378,7 +416,7 @@ function datosEntrega() {
                 <p>${localidad}, ${prov}.</p>
                 <p>A convenir. ${entrega}</p>
             </div>
-            <input type="button" value="Cambiar" class="link-datos" onclick="cambiarDatos();" />
+            <input type="button" value="Cambiar" class="link-datos" onclick="cambiarDatosEntrega();" />
             `;
         } else {
             datosEnvio.innerHTML = `
@@ -388,7 +426,7 @@ function datosEntrega() {
                 <p>${localidad}, ${prov}.</p>
                 <p>A convenir. ${entrega}</p>
             </div>
-            <input type="button" value="Cambiar" class="link-datos" onclick="cambiarDatos();" />
+            <input type="button" value="Cambiar" class="link-datos" onclick="cambiarDatosEntrega();" />
             `;
         }
     }

@@ -263,37 +263,69 @@
                         <div class="step-content" id="step-pago">
                             <h4>Medios de Pago</h4>
                             <ul id="metodos">
-                                <li>
+                                <li id="btn-efectivo">
                                     <div>
                                         <i class="fa-regular fa-money-bill-1"></i> Efectivo
                                     </div>
-                                    <i class="fa-solid fa-angle-right icon-pago" id="btn-efectivo"></i>
+                                    <i class="fa-solid fa-angle-right icon-pago"></i>
                                 </li>
-                                <li>
+                                <li id="btn-transferencia">
                                     <div>
                                         <i class="fa-solid fa-credit-card"></i> Tranferencia Bancaria
                                     </div>
-                                    <i class="fa-solid fa-angle-right icon-pago" id="btn-transferencia"></i>
+                                    <i class="fa-solid fa-angle-right icon-pago"></i>
                                 </li>
-                                <li>
+                                <li id="btn-mp">
                                     <div>
                                         <img src="../static/img/mp.png" alt="Logo Mercado Pago"> MercadoPago
                                     </div>
-                                    <i class="fa-solid fa-angle-right icon-pago" id="btn-mp"></i>
+                                    <i class="fa-solid fa-angle-right icon-pago"></i>
                                 </li>
                             </ul>
                             <div class="descripcion">
                                 <div class="step-pago hidden" id="label-efectivo">
-                                    <span id="lbl-efectivo-back">volver</span>
-                                    Contenido del div Efectivo
+                                    <span id="lbl-efectivo-back" class="return">
+                                        <i class="fa-solid fa-chevron-left"></i> Efectivo
+                                    </span>
+                                    <p class="importante">10% de DESCUENTO en tu compra</p>
+                                    <p>Sólo para Retiro y Encuentro.</p>
                                 </div>
                                 <div class="step-pago hidden" id="label-transferencia">
-                                    <span id="lbl-transferencia-back">volver</span>
-                                    Contenido del div Tranferencia
+                                    <span id="lbl-transferencia-back" class="return">
+                                        <i class="fa-solid fa-chevron-left"></i> Tranferencia Bancaria
+                                    </span>
+                                    <p class="importante">10% de DESCUENTO en tu compra</p>
+                                    <p>Cuando termines la compra, vas a ver la información de pago.</p>
+                                    <p>Recordá que deberás enviar el comprobante de pago vía WhatsApp.</p>
+                                    <p>El pedido no será preparado hasta que impacte el pago.</p>
                                 </div>
                                 <div class="step-pago hidden" id="label-mp">
-                                    <span id="lbl-mp-back">volver</span>
-                                    Contenido del div MercadoPago
+                                    <span id="lbl-mp-back" class="return">
+                                        <i class="fa-solid fa-chevron-left"></i>
+                                        <img src="../static/img/mercado-pago-logo.png" alt="Logo Mercado Pago">
+                                    </span>
+                                    <div class="lbl-mp">
+                                        <p><span class="importante">Pága iniciando sesión</span> con tu cuenta de Mercado Pago</p>
+                                        <p class="label">Ventajas para vos</p>
+                                        <div class="info-mp">
+                                            <div class="info-mp-title">
+                                                <img src="../static/img/billetera-mp.jpg"
+                                                    alt="Icono billetera de Mercado Pago">
+                                                <p class="importante">Pagá más rápido</p>
+                                            </div>
+                                            <p class="info-mp-text">Con dinero disponible o tus tarjetas guardadas.</p>
+                                        </div>
+                                        <div class="info-mp">
+                                            <div class="info-mp-title">
+                                                <img src="../static/img/mano-mp.jpg" alt="Icono billetera de Mercado Pago">
+                                                <p class="importante">Accedé a cuotas</p>
+                                            </div>
+                                            <p class="info-mp-text">Financiá tus compras con o sin tarjeta de crádito.</p>
+                                        </div>
+                                    </div>
+                                    <p>Cuando termines la compra, vas a ver la información de pago.</p>
+                                    <p>Recordá que deberás enviar el comprobante de pago vía WhatsApp.</p>
+                                    <p>El pedido no será preparado hasta que impacte el pago.</p>
                                 </div>
                             </div>
                         </div>

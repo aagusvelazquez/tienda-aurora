@@ -1,7 +1,7 @@
 /*
 Autores: Agustina Velazquez
 Fecha: 03/04/2024
-Descripcion: este archivo CSS contiene los estilos para el index.htmll
+Descripcion: este archivo CSS contiene los estilos para el archivo comprar.html
 */
 
 @font-face {
@@ -763,11 +763,85 @@ form {
 }
 
 #step-pago li i:last-child {
+   
     text-align: end;
 }
 .icon-pago {
     font-size: 1em;
     color: #888;
+}
+
+.descripcion .step-pago {
+    padding: 1em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .4em;
+}
+
+.return {
+    width: 100%;
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: .5em;
+    
+    font-family: var(--third-font);
+    text-transform: uppercase;
+}
+
+.descripcion .step-pago span i {
+    font-size: .6em;
+    margin-bottom: -.1em;
+}
+.descripcion .step-pago img {
+    width: 8em;
+}
+
+.importante {
+    font-family: var(--third-font);
+    font-weight: bold;
+}
+
+.label {
+    margin-top: 1em;
+    color: #04bbfb;
+    font-size: .9em;
+}
+
+.descripcion .step-pago p {
+    font-family: var(--third-font);
+}
+
+.info-mp {
+    margin-bottom: .5em;
+}
+
+.lbl-mp {
+    padding: .5em 1em;
+    margin-bottom: 1em;
+    border: #04bbfb 1px solid;
+    border-radius: 8px;
+}
+
+.info-mp-title {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.info-mp .info-mp-title img {
+    width: 3em;
+}
+
+.info-mp .info-mp-text {
+    width: 90%;
+    margin-left: 2em;
+    font-size: .9em;
+    text-align: start;
 }
 /************************** FOOTER ********************************/
 .container {
