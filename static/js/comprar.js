@@ -1,6 +1,20 @@
+const nav = document.querySelector(".nav");
+const navOpenBtn = document.querySelector(".navOpenBtn");
+const navCloseBtn = document.querySelector(".navCloseBtn");
 let currentStep = 1;
 const maxSteps = 3;
 const cartContainer = document.querySelector('.dropdown-content');
+/* Funcionalidad del navbar */
+
+navOpenBtn.addEventListener("click", () => {
+    nav.classList.add("openNav");
+    nav.classList.remove("openSearch");
+    searchIcon.classList.replace("uil-times", "uil-search");
+});
+navCloseBtn.addEventListener("click", () => {
+    nav.classList.remove("openNav");
+});
+
 // Obtener los datos del carrito guardado o que se inicialice como un array vacío
 let carritoItems = JSON.parse(localStorage.getItem('carrito')) || [];
 
