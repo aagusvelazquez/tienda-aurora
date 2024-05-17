@@ -65,158 +65,97 @@
                 <div class="total-compra"></div>
             </div>
             <h1 class="titulo-form-compra">Confirmación de Compra</h1>
-
-            <form>
-                <!-- Linea de pasos -->
-                <ul class="compra-timeline">
-                    <li>
-                        <button class="compra-timeline-item disabled">
-                            <div class="compra-timeline-item-icon">
-                                <i class="fa-solid fa-check"></i>
-                            </div>
-                            <p class="compra-timeline-item-text">Carrito</p>
-                        </button>
-                    </li>
-                    <li class="compra-timeline-line"></li>
-                    <li>
-                        <button class="compra-timeline-item" id="select-envio">
-                            <div class="compra-timeline-item-icon">
-                                <i class="fa-solid fa-truck-fast"></i>
-                            </div>
-                            <p class="compra-timeline-item-text">Entrega</p>
-                        </button>
-                    </li>
-                    <li class="compra-timeline-line"></li>
-                    <li>
-                        <button class="compra-timeline-item" id="select-pago">
-                            <div class="compra-timeline-item-icon">
-                                <i class="fa-regular fa-credit-card"></i>
-                            </div>
-                            <p class="compra-timeline-item-text">Pago</p>
-                        </button>
-                    </li>
-                </ul>
-                <!-- Captura de datos -->
-                <!-- Datos de contacto, envio y facturación -->
+            <!-- Linea de pasos -->
+            <ul class="compra-timeline">
+                <li>
+                    <button class="compra-timeline-item disabled">
+                        <div class="compra-timeline-item-icon">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <p class="compra-timeline-item-text">Carrito</p>
+                    </button>
+                </li>
+                <li class="compra-timeline-line"></li>
+                <li>
+                    <button class="compra-timeline-item" id="select-envio">
+                        <div class="compra-timeline-item-icon">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+                        <p class="compra-timeline-item-text">Entrega</p>
+                    </button>
+                </li>
+                <li class="compra-timeline-line"></li>
+                <li>
+                    <button class="compra-timeline-item" id="select-pago">
+                        <div class="compra-timeline-item-icon">
+                            <i class="fa-regular fa-credit-card"></i>
+                        </div>
+                        <p class="compra-timeline-item-text">Pago</p>
+                    </button>
+                </li>
+            </ul>
+            <!-- Captura de datos -->
+            <!-- Datos de contacto, envio y facturación -->
+            <form id="form">
                 <div id="datos-de-compra">
                     <!-- Correo de contacto -->
                     <div class="step">
                         <h2>Datos de contacto</h2>
                         <div class="step-content">
-                            <input type="email" id="email-comprador" name="email" class="input-datos-personales"
-                                placeholder="Correo electrónico" />
+                            <input type="text" name="to_email" id="to_email" class="input-datos-personales"
+                                placeholder="Correo electrónico">
                         </div>
                     </div>
-                    <!-- Codigo Postal de Entrega -->
+                    <input type="button" id="validar-btn" class="btn-form" value="Continuar" id="btn-continuar" />
+                </div>
+                <!-- Datos de Entrega -->
+                <div class="hidden" id="destino">
                     <div class="step">
-                        <h2>Entrega</h2>
-                        <div class="step-content input">
-                            <input class="input-datos-personales" id="CP" type="number" placeholder="Código postal" />
-                            <span class="link-cp">
-                                <a href="https://www.correoargentino.com.ar/formularios/cpa" target="_blank">Encontrá tu
-                                    CP</a>
-                            </span>
-                            <input type="button" id="validar-btn" class="btn-form" value="Continuar"
-                                id="btn-continuar" />
-                        </div>
-                    </div>
-                    <!-- Datos de Entrega -->
-                    <div class="step hidden" id="destino">
                         <h2>Datos de Entrega</h2>
                         <div class="step-content">
                             <!-- Método de entrega -->
-                            <select name="envio" id="envio" class="select-entrega" onchange="entregaElegida();">
+                            <select name="to_entrega" id="to_entrega" class="select-entrega" onchange="entregaElegida();">
                                 <option value="default" selected>Seleccione método de entrega</option>
                                 <option value="envio">Envío a domicilio</option>
                                 <option value="retiro">Retiro - Morón, Bs As.</option>
                                 <option value="encuentro">Encuentro - Est. Morón</option>
                             </select>
                             <!-- Datos personales de quien Recibe -->
-                            <input type="text" id="name-user" name="nombre" class="input-datos-personales"
-                                placeholder="Nombre" />
-                            <input type="text" id="lastname-user" name="apellido" class="input-datos-personales"
-                                placeholder="Apellido" />
-                            <input type="text" id="tel-user" name="contacto" class="input-datos-personales"
-                                placeholder="Ej. 1125361425" />
-                            <!-- Muestra el CP indicado -->
-                            <div class="input-datos-personales hidden" id="input-cp"></div>
+                            <input type="text" name="to_name" id="to_name" class="input-datos-personales"
+                                placeholder="Nombre">
+                            <input type="text" name="to_lastname" id="to_lastname" class="input-datos-personales"
+                                placeholder="Apellido">
+                            <input type="text" name="to_telefono" id="to_telefono" class="input-datos-personales"
+                                placeholder="Telefono">
+                            <input type="text" name="to_dni" id="to_dni" class="input-datos-personales" placeholder="DNI">
                             <!-- Muestra el método de entrega seleccionado -->
                             <div class="input-datos-personales hidden" id="envio-seleccionado"></div>
                             <!-- Form de datos de envio -->
-                            <div class="datos-envio hidden" id="datos-despacho"></div>
+                            <div class="datos-envio hidden" id="datos-despacho">
+                                <input type="text" name="to_calle" id="to_calle" class="input-datos-personales"
+                                    placeholder="Calle">
+                                <input type="text" name="to_numero" id="to_numero" class="input-datos-personales"
+                                    placeholder="Número">
+                                <input type="text" name="to_dpto" id="to_dpto" class="input-datos-personales"
+                                    placeholder="Piso o Departamento">
+                                <input type="text" name="to_localidad" id="to_localidad" class="input-datos-personales"
+                                    placeholder="Localidad">
+                                <input type="text" name="to_provincia" id="to_provincia" class="input-datos-personales"
+                                    placeholder="Provincia">
+                                <div class="input">
+                                    <input type="text" name="to_codigo_postal" id="to_codigo_postal"
+                                        class="input-datos-personales" placeholder="Código Postal">
+                                    <span class="link-cp">
+                                        <a href="https://www.correoargentino.com.ar/formularios/cpa" target="_blank">Encontrá tu CP</a>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!-- Datos de pago, en caso de que no abone quien reciba -->
-                    <div class="step facturacion hidden" id="facturacion">
-                        <h2>Datos de Facturacion</h2>
-                        <!-- DNI o CUIL de quien recibe y abona -->
-                        <div class="step-content">
-                            <input type="text" id="dniCuil" name="dni-cuil" class="input-datos-personales"
-                                placeholder="DNI o CUIL" />
-                            <div class="datos-facturacion">
-                                <input type="checkbox" name="checkbox" id="datos-facturacion" checked>
-                                <label for="checkbox">Mis datos de facturación y entrega son<br>los mismos</label>
-                            </div>
-                        </div>
-                        <!-- Datos de quien abona, en caso de no ser quien reciba -->
-                        <div class="step-content hidden datos-abono">
-                            <h5>Persona que pagará el pedido</h5>
-                            <input type="text" name="nombre-abono" class="input-datos-personales"
-                                placeholder="Nombre" />
-                            <input type="text" name="apellido-abono" class="input-datos-personales"
-                                placeholder="Apellido" />
-                            <input type="text" name="telefono-abono" class="input-datos-personales"
-                                placeholder="Telefono" />
-                            <input type="text" name="calle-abono" class="input-datos-personales" placeholder="Calle" />
-                            <input type="text" name="num-calle-abono" class="input-datos-personales"
-                                placeholder="Número" />
-                            <input type="text" name="dpto-abono" class="input-datos-personales"
-                                placeholder="Departamento (opcional)" />
-                            <input type="text" name="barrio-abono" class="input-datos-personales"
-                                placeholder="Barrio (opcional)" />
-                            <div class="step-content input">
-                                <input class="input-datos-personales" id="cp-abono" type="number"
-                                    placeholder="Código postal" />
-                                <span class="link-cp">
-                                    <a href="https://www.correoargentino.com.ar/formularios/cpa"
-                                        target="_blank">Encontrá tu
-                                        CP</a>
-                                </span>
-                            </div>
-                            <div class="provincias">
-                                <label for="provincia">Provincia</label>
-                                <select name="provincia" id="">
-                                    <option value="caba">Ciudad Autónoma de Buenos Aires</option>
-                                    <option value="bsas">Buenos Aires</option>
-                                    <option value="catamarca">Catamarca</option>
-                                    <option value="Chaco">Chaco</option>
-                                    <option value="Chubut">Chubut</option>
-                                    <option value="Córdoba">Córdoba</option>
-                                    <option value="Corrientes">Corrientes</option>
-                                    <option value="Entre Ríos">Entre Ríos</option>
-                                    <option value="Formosa">Formosa</option>
-                                    <option value="Jujuy">Jujuy</option>
-                                    <option value="La Pampa">La Pampa</option>
-                                    <option value="La Rioja">La Rioja</option>
-                                    <option value="Mendoza">Mendoza</option>
-                                    <option value="Misiones">Misiones</option>
-                                    <option value="Neuquen">Neuquen</option>
-                                    <option value="Río Negro">Río Negro</option>
-                                    <option value="Salta">Salta</option>
-                                    <option value="San Juan">San Juan</option>
-                                    <option value="San Luís">San Luís</option>
-                                    <option value="Santa Cruz">Santa Cruz</option>
-                                    <option value="Santiago del Estero">Santiago del Estero</option>
-                                    <option value="Tierra del Fuego">Tierra del Fuego</option>
-                                    <option value="Tucumán">Tucumán</option>
-                                </select>
-                            </div>
-                        </div>
-                        <input type="button" id="validar-datos" class="btn-form" value="Continuar con el Pago" />
-                    </div>
+                    <input type="button" id="validar-datos" class="btn-datos" value="Continuar con el Pago" />
                 </div>
                 <!-- Datos de pago -->
-                <div id="datos-de-pago" class="hidden">
+                <div class="hidden" id="datos-de-pago">
                     <div class="cod-descuento">
                         <i class="fa-solid fa-ticket"></i>
                         <input type="button" id="descuento" value="Agregar cupón de Descuento" />
@@ -226,24 +165,28 @@
                             <input type="button" id="validar-dto" value="Validar" class="validar-btn" />
                         </div>
                     </div>
+                    <!-- Correo del cliente -->
                     <div class="step">
                         <div class="step-content correo">
                             <i class="fa-solid fa-envelope"></i>
                             <span id="correo-compra"></span>
                         </div>
                     </div>
+                    <!-- Nombre completo, DNI y telefono del cliente -->
                     <div class="step-user">
                         <div class="step-content user">
                             <i class="fa-solid fa-user"></i>
                             <div class="step-content user-datos" id="user-datos"></div>
                         </div>
                     </div>
+                    <!-- Datos del envio -->
                     <div class="step-envio">
                         <div class="step-content user">
                             <i class="fa-solid fa-truck-fast"></i>
                             <div class="step-content user-datos" id="datos-de-envio"></div>
                         </div>
                     </div>
+                    <!-- Notas de pedido -->
                     <div class="step-envio">
                         <div class="step-content notas">
                             <i class="fa-solid fa-comments"></i>
@@ -251,7 +194,7 @@
                                 <div>
                                     <span>Notas de pedido</span>
                                     <div id="nota" class="hidden">
-                                        <textarea id="nota-pedido" name="nota-pedido"></textarea>
+                                        <textarea id="to_nota" name="to_nota"></textarea>
                                     </div>
                                 </div>
                                 <div id="btn-nota-add" class="link-datos">Agregar</div>
@@ -259,6 +202,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Métodos de pago -->
                     <div class="step">
                         <div class="step-content" id="step-pago">
                             <h4>Medios de Pago</h4>
@@ -305,7 +249,8 @@
                                         <img src="../static/img/mercado-pago-logo.png" alt="Logo Mercado Pago">
                                     </span>
                                     <div class="lbl-mp">
-                                        <p><span class="importante">Pága iniciando sesión</span> con tu cuenta de Mercado Pago</p>
+                                        <p><span class="importante">Pága iniciando sesión</span> con tu cuenta de
+                                            Mercado Pago</p>
                                         <p class="label">Ventajas para vos</p>
                                         <div class="info-mp">
                                             <div class="info-mp-title">
@@ -317,10 +262,12 @@
                                         </div>
                                         <div class="info-mp">
                                             <div class="info-mp-title">
-                                                <img src="../static/img/mano-mp.jpg" alt="Icono billetera de Mercado Pago">
+                                                <img src="../static/img/mano-mp.jpg"
+                                                    alt="Icono billetera de Mercado Pago">
                                                 <p class="importante">Accedé a cuotas</p>
                                             </div>
-                                            <p class="info-mp-text">Financiá tus compras con o sin tarjeta de crádito.</p>
+                                            <p class="info-mp-text">Financiá tus compras con o sin tarjeta de crádito.
+                                            </p>
                                         </div>
                                     </div>
                                     <p>Cuando termines la compra, vas a ver la información de pago.</p>
@@ -330,6 +277,7 @@
                             </div>
                         </div>
                     </div>
+                    <button type="submit" id="confirmar-compra" class="btn-confirm">Confirmar Compra</button>
                 </div>
             </form>
         </section>
@@ -346,7 +294,11 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../static/js/comprar.js" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        emailjs.init('8F7N1fFq6I9eLONNP')
+    </script>
+    <script src="../static/js/comprar.js"></script>
 </body>
 
 </html>

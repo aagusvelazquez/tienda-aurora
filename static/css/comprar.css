@@ -450,6 +450,7 @@ form {
 
 .input {
     position: relative;
+    width: 100%;
 }
 
 .link-cp {
@@ -463,10 +464,13 @@ form {
     cursor: pointer;
 }
 
-.btn-form {
-    width: 100%;
+.btn-confirm,
+.btn-form,
+.btn-datos {
+    width: 80%;
     padding: .5em;
-    margin-top: 1em;
+    margin-top: .5em;
+    margin-left: 40px;
 
     background-color: var(--primary-color);
     border: none;
@@ -476,6 +480,8 @@ form {
     color: var(--bg-dark);
     font-family: var(--third-font);
     font-size: 1em;
+
+    cursor: pointer;
 }
 
 .btn-cp {
@@ -527,6 +533,7 @@ form {
 #envio-seleccionado {
     height: 18vw;
 }
+
 .datos-postal {
     display: flex;
     gap: 1em;
@@ -552,59 +559,6 @@ form {
     margin-bottom: 1.5em;
 }
 
-.datos-facturacion #datos-facturacion {
-    cursor: pointer;
-    width: 1em;
-    height: 1em;
-    position: absolute;
-    top: 8em;
-    left: 2em;
-    border: 2px solid #888;
-}
-
-.datos-facturacion label[for="checkbox"] {
-    position: absolute;
-    top: 8.3em;
-    left: 4em;
-    font-size: .8em;
-    text-align: justify;
-}
-
-.datos-abono {
-    margin-top: 3em;
-}
-
-.datos-abono>h5 {
-    text-align: left;
-}
-
-.provincias {
-    display: flex;
-    justify-content: space-around;
-
-    font-size: .85em;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #7e7e7e;
-    border: 1px solid #7e7e7e48;
-    border-radius: .5em;
-
-    width: 100%;
-    height: 3em;
-
-    margin: .5em 0;
-    padding: .8em;
-}
-
-.provincias select {
-    border: none;
-    margin-top: -.15em;
-    margin-left: .3em;
-}
-
-.provincias select:focus {
-    border: none;
-}
-
 .cod-descuento {
     width: 90vw;
     margin: 1.5em auto;
@@ -622,6 +576,8 @@ form {
     font-size: 1em;
     color: var(--third-color);
     background-color: white;
+
+    cursor: pointer;
 }
 
 .dto-label {
@@ -730,6 +686,8 @@ form {
     font-size: .8em;
     font-family: var(--third-font);
     text-decoration: underline;
+
+    cursor: pointer;
 }
 
 #nota-pedido {
@@ -749,6 +707,8 @@ form {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    cursor: pointer;
 }
 
 #step-pago li i:first-child {
@@ -766,6 +726,7 @@ form {
    
     text-align: end;
 }
+
 .icon-pago {
     font-size: 1em;
     color: #888;

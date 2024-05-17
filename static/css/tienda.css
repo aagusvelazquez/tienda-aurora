@@ -1,7 +1,7 @@
 /*
 Autores: Agustina Velazquez
 Fecha: 03/04/2024
-Descripcion: este archivo CSS contiene los estilos para el index.htmll
+Descripcion: este archivo CSS contiene los estilos para el archivo tienda.html
 */
 
 @font-face {
@@ -589,6 +589,8 @@ label img {
 
 .img-producto {
     width: 3em;
+    border-radius: 15px;
+    margin-right: .2em;
 }
 
 .info-cant-product {
@@ -622,13 +624,12 @@ label img {
 
 .titulo-producto-carrito {
     text-align: center;
-    font-size: .6em;
+    font-size: .5em;
 }
 
 .precio-producto-carrito {
-    font-weight: 700;
     font-size: .7em;
-    margin-left: 10px;
+    margin-right: .5em;
 }
 
 .cantidad-producto-carrito {
